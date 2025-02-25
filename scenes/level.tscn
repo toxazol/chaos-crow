@@ -1,117 +1,143 @@
-[gd_scene load_steps=25 format=3 uid="uid://cstxl4q48gjfs"]
+[gd_scene load_steps=30 format=3 uid="uid://cstxl4q48gjfs"]
 
 [ext_resource type="Texture2D" uid="uid://474dn7fx0066" path="res://icon.svg" id="1_bg14a"]
 [ext_resource type="Script" path="res://scripts/crow.gd" id="2_p3j1n"]
-[ext_resource type="Texture2D" uid="uid://be41m3qosuaqr" path="res://sprites/crowBody.png" id="3_jfmgi"]
-[ext_resource type="Texture2D" uid="uid://pjowbgwjqs2w" path="res://sprites/crowHead.png" id="4_tjhco"]
+[ext_resource type="Texture2D" uid="uid://b0dmnn1epkqie" path="res://sprites/crow_body_fly_01.png" id="3_w6kty"]
+[ext_resource type="Texture2D" uid="uid://coffwmahspree" path="res://sprites/crow_body_fly_02.png" id="4_2wifk"]
+[ext_resource type="Texture2D" uid="uid://doy6mowuwktr4" path="res://sprites/crow_body_fly_03.png" id="5_83ol5"]
 [ext_resource type="Texture2D" uid="uid://cc07nlkcniy4q" path="res://samples/softbody2d/Asparagus.png" id="5_t4562"]
 [ext_resource type="Script" path="res://addons/softbody2d/softbody2d.gd" id="6_1ojk0"]
-[ext_resource type="PackedScene" uid="uid://e43003nmrylg" path="res://samples/softbody2d/pickable_rigidbody.tscn" id="7_aou0c"]
-[ext_resource type="PhysicsMaterial" uid="uid://2kay8j53abmv" path="res://samples/softbody2d/softbody2d_phys_slippery.tres" id="8_2airh"]
-[ext_resource type="Script" path="res://samples/softbody2d/pickable_rigidbody.gd" id="9_3xatp"]
+[ext_resource type="Texture2D" uid="uid://b6ydm771q18f" path="res://sprites/crow_body_idle_01.png" id="6_rngl3"]
+[ext_resource type="Texture2D" uid="uid://dwqp780e87emj" path="res://sprites/crow_head_01_v1.png" id="7_88ogr"]
+[ext_resource type="PackedScene" uid="uid://cxpgfhbaedt2" path="res://scenes/peckable_rigidbody.tscn" id="7_tvhb3"]
+[ext_resource type="PhysicsMaterial" uid="uid://deqagbq7eod2b" path="res://samples/softbody2d/softbody2d_phys_bouncy.tres" id="8_yuxdy"]
+[ext_resource type="Script" path="res://scripts/peckable_rigidbody.gd" id="9_ati8o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i5dby"]
+rough = true
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nlhbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhc3x"]
-size = Vector2(54, 12)
+size = Vector2(58, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kbfhr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_jfmgi")
+"texture": ExtResource("3_w6kty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2wifk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_83ol5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2wifk")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rngl3")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }]
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_rn2wf"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3l6d"]
+radius = 77.0065
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_hp7dk"]
 resource_local_to_scene = true
 bone_index = 0
 bone2d_node = NodePath("Bone-0")
 target_nodepath = NodePath("Bone-1")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_wdnhl"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_p6hjx"]
 resource_local_to_scene = true
 bone_index = 1
 bone2d_node = NodePath("Bone-1")
 target_nodepath = NodePath("Bone-2")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_1esm6"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_30y1o"]
 resource_local_to_scene = true
 bone_index = 2
 bone2d_node = NodePath("Bone-2")
 target_nodepath = NodePath("Bone-1")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_2dj6x"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_qpe3o"]
 resource_local_to_scene = true
 bone_index = 3
 bone2d_node = NodePath("Bone-3")
 target_nodepath = NodePath("Bone-4")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_h3msd"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_3xbie"]
 resource_local_to_scene = true
 bone_index = 4
 bone2d_node = NodePath("Bone-4")
 target_nodepath = NodePath("Bone-3")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_j33av"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_78dwe"]
 resource_local_to_scene = true
 bone_index = 5
 bone2d_node = NodePath("Bone-5")
 target_nodepath = NodePath("Bone-6")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_48xgi"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_ffaxs"]
 resource_local_to_scene = true
 bone_index = 6
 bone2d_node = NodePath("Bone-6")
 target_nodepath = NodePath("Bone-7")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_pubnv"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_h3eaf"]
 resource_local_to_scene = true
 bone_index = 7
 bone2d_node = NodePath("Bone-7")
 target_nodepath = NodePath("Bone-8")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_qkl6b"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_x0e50"]
 resource_local_to_scene = true
 bone_index = 8
 bone2d_node = NodePath("Bone-8")
 target_nodepath = NodePath("Bone-9")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_aksm5"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_a7r18"]
 resource_local_to_scene = true
 bone_index = 9
 bone2d_node = NodePath("Bone-9")
 target_nodepath = NodePath("Bone-8")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_lxymw"]
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_mjnkj"]
 resource_local_to_scene = true
 enabled = true
 modification_count = 10
-modifications/0 = SubResource("SkeletonModification2DLookAt_rn2wf")
-modifications/1 = SubResource("SkeletonModification2DLookAt_wdnhl")
-modifications/2 = SubResource("SkeletonModification2DLookAt_1esm6")
-modifications/3 = SubResource("SkeletonModification2DLookAt_2dj6x")
-modifications/4 = SubResource("SkeletonModification2DLookAt_h3msd")
-modifications/5 = SubResource("SkeletonModification2DLookAt_j33av")
-modifications/6 = SubResource("SkeletonModification2DLookAt_48xgi")
-modifications/7 = SubResource("SkeletonModification2DLookAt_pubnv")
-modifications/8 = SubResource("SkeletonModification2DLookAt_qkl6b")
-modifications/9 = SubResource("SkeletonModification2DLookAt_aksm5")
+modifications/0 = SubResource("SkeletonModification2DLookAt_hp7dk")
+modifications/1 = SubResource("SkeletonModification2DLookAt_p6hjx")
+modifications/2 = SubResource("SkeletonModification2DLookAt_30y1o")
+modifications/3 = SubResource("SkeletonModification2DLookAt_qpe3o")
+modifications/4 = SubResource("SkeletonModification2DLookAt_3xbie")
+modifications/5 = SubResource("SkeletonModification2DLookAt_78dwe")
+modifications/6 = SubResource("SkeletonModification2DLookAt_ffaxs")
+modifications/7 = SubResource("SkeletonModification2DLookAt_h3eaf")
+modifications/8 = SubResource("SkeletonModification2DLookAt_x0e50")
+modifications/9 = SubResource("SkeletonModification2DLookAt_a7r18")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyic0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esc45"]
 resource_local_to_scene = true
 size = Vector2(8.4, 8.4)
 
@@ -119,6 +145,7 @@ size = Vector2(8.4, 8.4)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(352, 450)
+physics_material_override = SubResource("PhysicsMaterial_i5dby")
 
 [node name="Icon" type="Sprite2D" parent="Floor"]
 position = Vector2(0, 59)
@@ -133,16 +160,31 @@ position = Vector2(192, 343)
 script = ExtResource("2_p3j1n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crow"]
-position = Vector2(-12, 45)
+position = Vector2(-10, 45)
 shape = SubResource("RectangleShape2D_vhc3x")
+one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Crow"]
 sprite_frames = SubResource("SpriteFrames_kbfhr")
 animation = &"idle"
 
+[node name="Line2D" type="Line2D" parent="Crow"]
+visible = false
+position = Vector2(23, -10)
+points = PackedVector2Array(0, -1, 11, -10)
+width = 15.0
+default_color = Color(0, 0, 0, 1)
+
 [node name="HeadSprite" type="Sprite2D" parent="Crow"]
-position = Vector2(43, -21)
-texture = ExtResource("4_tjhco")
+position = Vector2(78, -21)
+texture = ExtResource("7_88ogr")
+offset = Vector2(-35, 0)
+
+[node name="BeakZone" type="Area2D" parent="Crow"]
+position = Vector2(75, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crow/BeakZone"]
+shape = SubResource("CircleShape2D_j3l6d")
 
 [node name="Asparagus" type="Polygon2D" parent="."]
 z_index = 5
@@ -163,16 +205,17 @@ disable_collision = false
 softness = 2.0
 radius = 28
 margin_offset_edge = 7.0
-rigidbody_scene = ExtResource("7_aou0c")
-physics_material_override = ExtResource("8_2airh")
+rigidbody_scene = ExtResource("7_tvhb3")
+physics_material_override = ExtResource("8_yuxdy")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Asparagus"]
 visible = false
-modification_stack = SubResource("SkeletonModificationStack2D_lxymw")
+modification_stack = SubResource("SkeletonModificationStack2D_mjnkj")
 
 [node name="Bone-0" type="Bone2D" parent="Asparagus/Skeleton2D"]
 position = Vector2(30.1914, 44.9974)
 rotation = 1.59012
+scale = Vector2(1, 1)
 rest = Transform2D(-0.0193235, 0.999813, -0.999813, -0.0193235, 30.1914, 44.9974)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -186,6 +229,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-1" type="Bone2D" parent="Asparagus/Skeleton2D"]
 position = Vector2(29.3218, 89.9926)
 rotation = 1.5415
+scale = Vector2(1, 1)
 rest = Transform2D(0.0292934, 0.999571, -0.999571, 0.0292934, 29.3218, 89.9926)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -237,8 +281,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-5" type="Bone2D" parent="Asparagus/Skeleton2D"]
 position = Vector2(34.9441, 220.002)
-rotation = 1.50707
-scale = Vector2(1, 1)
+rotation = 1.50706
+scale = Vector2(1.00001, 1.00001)
 rest = Transform2D(0.063684, 0.99797, -0.99797, 0.063684, 34.9441, 220.002)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -264,7 +308,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-7" type="Bone2D" parent="Asparagus/Skeleton2D"]
 position = Vector2(40.9935, 292.018)
-rotation = 1.56698
+rotation = 1.56699
 rest = Transform2D(0.00381214, 0.999993, -0.999993, 0.00381214, 40.9936, 292.018)
 auto_calculate_length_and_angle = false
 length = 36.0
@@ -301,17 +345,17 @@ metadata/connected_nodes_paths = [NodePath("Bone-8")]
 metadata/connected_nodes_idx = [8]
 metadata/_local_pose_override_enabled_ = true
 
-[node name="Bone-0" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-0" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(30.1914, 44.9974)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 0
 metadata/bone_name = &"Bone-0"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-0"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-0"]
 visible = false
@@ -327,17 +371,17 @@ node_b = NodePath("../../Bone-1")
 disable_collision = false
 softness = 2.0
 
-[node name="Bone-1" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-1" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(29.3218, 89.9926)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 1
 metadata/bone_name = &"Bone-1"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-1"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-1"]
 visible = false
@@ -361,17 +405,17 @@ node_b = NodePath("../../Bone-2")
 disable_collision = false
 softness = 2.0
 
-[node name="Bone-2" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-2" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(30.3767, 125.99)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 2
 metadata/bone_name = &"Bone-2"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-2"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-2"]
 visible = false
@@ -395,17 +439,17 @@ node_b = NodePath("../../Bone-1")
 disable_collision = false
 softness = 2.0
 
-[node name="Bone-3" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-3" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(30.8738, 161.972)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 3
 metadata/bone_name = &"Bone-3"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-3"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-3"]
 visible = false
@@ -429,17 +473,17 @@ node_b = NodePath("../../Bone-4")
 disable_collision = false
 softness = 2.0
 
-[node name="Bone-4" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-4" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(34.2253, 197.987)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 4
 metadata/bone_name = &"Bone-4"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-4"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-4"]
 visible = false
@@ -463,17 +507,17 @@ node_b = NodePath("../../Bone-3")
 disable_collision = false
 softness = 2.0
 
-[node name="Bone-5" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-5" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(34.9441, 220.002)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 5
 metadata/bone_name = &"Bone-5"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-5"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-5"]
 visible = false
@@ -497,17 +541,17 @@ node_b = NodePath("../../Bone-6")
 disable_collision = false
 softness = 2.0
 
-[node name="Bone-6" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-6" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(37.2418, 256.009)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 6
 metadata/bone_name = &"Bone-6"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-6"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-6"]
 visible = false
@@ -531,17 +575,17 @@ node_b = NodePath("../../Bone-7")
 disable_collision = false
 softness = 2.0
 
-[node name="Bone-7" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-7" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(40.9936, 292.018)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 7
 metadata/bone_name = &"Bone-7"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-7"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-7"]
 visible = false
@@ -565,17 +609,17 @@ node_b = NodePath("../../Bone-8")
 disable_collision = false
 softness = 2.0
 
-[node name="Bone-8" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-8" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(41.1307, 328.01)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 8
 metadata/bone_name = &"Bone-8"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-8"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-8"]
 visible = false
@@ -599,17 +643,17 @@ node_b = NodePath("../../Bone-9")
 disable_collision = false
 softness = 2.0
 
-[node name="Bone-9" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_aou0c")]
+[node name="Bone-9" type="RigidBody2D" parent="Asparagus" instance=ExtResource("7_tvhb3")]
 position = Vector2(41.2137, 366.506)
 input_pickable = true
 mass = 0.1
-physics_material_override = ExtResource("8_2airh")
-script = ExtResource("9_3xatp")
+physics_material_override = ExtResource("8_yuxdy")
+script = ExtResource("9_ati8o")
 metadata/idx = 9
 metadata/bone_name = &"Bone-9"
 
 [node name="RectangleShape2D" type="CollisionShape2D" parent="Asparagus/Bone-9"]
-shape = SubResource("RectangleShape2D_jyic0")
+shape = SubResource("RectangleShape2D_esc45")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Asparagus/Bone-9"]
 visible = false
