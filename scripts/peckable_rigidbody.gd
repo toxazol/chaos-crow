@@ -1,7 +1,7 @@
 @tool
 extends SoftBody2DRigidBody
 
-var SPEED : float = 200
+var SPEED : float = 400
 
 var holdingThing: Node2D = null
 # var isHighlighted = false
@@ -20,7 +20,7 @@ func stick(to: Node2D):
 func drop():
 	holdingThing = null
 
-func _process(delta):
+func _physics_process(delta):
 
 	if holdingThing:
 		var dir = (holdingThing.global_position - global_position - linear_velocity * delta)

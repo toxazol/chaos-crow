@@ -3,5 +3,8 @@
 [ext_resource type="Script" path="res://scripts/peckable_rigidbody.gd" id="1_gl1ki"]
 
 [node name="PickableRigidBody" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
 input_pickable = true
+mass = 0.01
 script = ExtResource("1_gl1ki")

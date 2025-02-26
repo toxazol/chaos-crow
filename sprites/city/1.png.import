@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coffwmahspree"
-path="res://.godot/imported/crow_body_fly_02.png-22ebcd17a5222c9998937771834d7367.ctex"
+uid="uid://bbv20uubapyvo"
+path="res://.godot/imported/1.png-8170084e7521f424851e8a448b61a86b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/crow_body_fly_02.png"
-dest_files=["res://.godot/imported/crow_body_fly_02.png-22ebcd17a5222c9998937771834d7367.ctex"]
+source_file="res://sprites/city/1.png"
+dest_files=["res://.godot/imported/1.png-8170084e7521f424851e8a448b61a86b.ctex"]
 
 [params]
 
