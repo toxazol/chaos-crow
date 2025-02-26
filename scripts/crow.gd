@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var friction = 20.0
 @export var hopVelocity = -200.0
 @export var takeOffTime = 0.1
+@export var maxNeckLen = 55
+@export var holdTimeout = 0.5
 
 var isLookingLeft = false
 var isFlying = false
@@ -12,20 +14,25 @@ var wasFlying = false
 var isTakeOff = false
 var thingInBeak: Node2D = null
 var initialHeadTransform
+var initialNeckBasePostion
 var direction = 0.0
 var prevDirection = 1.0
 var takeOffTimer = 0.0
+var holdTimer = 0.0
 
 func _ready():
 	initialHeadTransform = $HeadSprite.transform
+	initialNeckBasePostion = $Neck.points[1]
 
 func peck():
 	if thingInBeak:
 		thingInBeak.call("drop")
 		thingInBeak = null
 		$HeadSprite.transform = initialHeadTransform
+		$Neck.points[1] = initialNeckBasePostion
 		if isLookingLeft:
 			$HeadSprite.position.x *= -1
+			$Neck.points[1].x *= -1
 		return
 
 	var bodies = $BeakZone.get_overlapping_bodies()
@@ -108,4 +115,12 @@ func _process(delta: float):
 		$Neck.position.x *= -1
 		$Neck.points[1].x *= -1
 
+	if isNeckTooLong():
+		holdTimer += delta
+		if holdTimer > holdTimeout:
+			peck()
+	if holdTimer > holdTimeout:
+		holdTimer = 0.0
 	
+func isNeckTooLong() -> bool:
+	return thingInBeak and $Neck.points[1].distance_squared_to($Neck.points[0]) > maxNeckLen*maxNeckLen

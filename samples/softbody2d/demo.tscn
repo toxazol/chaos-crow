@@ -21517,8 +21517,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-6" type="Bone2D" parent="Softbody2d3/Skeleton2D"]
 position = Vector2(119.923, 44.7307)
-rotation = 0.00811133
-scale = Vector2(1, 1)
+rotation = 0.00811136
 rest = Transform2D(0.999967, 0.00811127, -0.00811127, 0.999967, 119.923, 44.7307)
 auto_calculate_length_and_angle = false
 length = 35.0
