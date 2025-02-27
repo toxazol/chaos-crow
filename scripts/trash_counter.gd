@@ -10,5 +10,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var contactCount = $TrashDetector.get_overlapping_bodies().size()
-	print(contactCount)
+	#print(contactCount)
 	ScoreManager.set_score(contactCount)
