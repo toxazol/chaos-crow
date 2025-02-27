@@ -1,4 +1,4 @@
-[gd_scene load_steps=304 format=3 uid="uid://cstxl4q48gjfs"]
+[gd_scene load_steps=306 format=3 uid="uid://cstxl4q48gjfs"]
 
 [ext_resource type="Texture2D" uid="uid://dr1chtpa4diiw" path="res://sprites/city/bck_sky.png" id="1_21i41"]
 [ext_resource type="Texture2D" uid="uid://474dn7fx0066" path="res://icon.svg" id="1_bg14a"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://addons/softbody2d/softbody2d.gd" id="6_1ojk0"]
 [ext_resource type="Texture2D" uid="uid://b6ydm771q18f" path="res://sprites/crow/crow_body_idle_01.png" id="6_rngl3"]
 [ext_resource type="Texture2D" uid="uid://k3ukxmhdq428" path="res://sprites/crow/crow_head_01_v2.png" id="7_acejv"]
+[ext_resource type="Script" path="res://scripts/trash_counter.gd" id="7_dl0hp"]
 [ext_resource type="PackedScene" uid="uid://cxpgfhbaedt2" path="res://scenes/peckable_rigidbody.tscn" id="7_tvhb3"]
 [ext_resource type="PhysicsMaterial" uid="uid://deqagbq7eod2b" path="res://samples/softbody2d/softbody2d_phys_bouncy.tres" id="8_yuxdy"]
 [ext_resource type="Texture2D" uid="uid://mrt5u6rhexsk" path="res://sprites/crow/crow_body_takeoff_01.png" id="9_mhpgu"]
@@ -22,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b505vqsq881vn" path="res://sprites/city/bck_house_01.png" id="18_wfiiu"]
 [ext_resource type="Texture2D" uid="uid://bip7m76h75kgk" path="res://samples/softbody2d/Boiled_Egg_Half.png" id="21_dhhw4"]
 [ext_resource type="PhysicsMaterial" uid="uid://2kay8j53abmv" path="res://samples/softbody2d/softbody2d_phys_slippery.tres" id="23_f2ek2"]
+[ext_resource type="Script" path="res://scripts/score_counter.gd" id="23_us3bk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i5dby"]
 rough = true
@@ -2034,6 +2036,7 @@ position = Vector2(0, -230)
 scroll_scale = Vector2(0.1, 1)
 scroll_offset = Vector2(0, -1249)
 repeat_size = Vector2(3840, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="BG/L0"]
 texture = ExtResource("1_21i41")
@@ -2041,6 +2044,7 @@ texture = ExtResource("1_21i41")
 [node name="L1" type="Parallax2D" parent="BG"]
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(3840, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="BG/L1"]
 texture = ExtResource("2_ldo0o")
@@ -2048,6 +2052,7 @@ texture = ExtResource("2_ldo0o")
 [node name="Ground" type="Parallax2D" parent="BG"]
 scroll_offset = Vector2(0, -1070)
 repeat_size = Vector2(3840, 0)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="BG/Ground"]
 texture = ExtResource("3_yjafk")
@@ -2074,6 +2079,7 @@ polygon = PackedVector2Array(-55.5, -800.5, -55.5, -797.6, -60.5, -794.6, -60.5,
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(352, 450)
 physics_material_override = SubResource("PhysicsMaterial_i5dby")
+script = ExtResource("7_dl0hp")
 
 [node name="Icon" type="Sprite2D" parent="Floor"]
 visible = false
@@ -2082,6 +2088,14 @@ scale = Vector2(1000, 1)
 texture = ExtResource("1_bg14a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_nlhbk")
+
+[node name="TrashDetector" type="Area2D" parent="Floor"]
+collision_layer = 15
+collision_mask = 15
+monitorable = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor/TrashDetector"]
 shape = SubResource("WorldBoundaryShape2D_nlhbk")
 
 [node name="Crow" type="CharacterBody2D" parent="."]
@@ -18624,3 +18638,23 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("1_o20ha")
 followTarget = NodePath("../Crow")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Chaos points:"
+
+[node name="ScoreValue" type="Label" parent="UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+script = ExtResource("23_us3bk")
