@@ -2,6 +2,7 @@
 extends SoftBody2DRigidBody
 
 var SPEED : float = 400
+var DAMP : float = 0.1
 
 var holdingThing: Node2D = null
 # var isHighlighted = false
@@ -23,7 +24,7 @@ func drop():
 func _physics_process(delta):
 
 	if holdingThing:
-		var dir = (holdingThing.global_position - global_position - linear_velocity * delta)
+		var dir = (holdingThing.global_position - global_position - DAMP * linear_velocity * delta)
 		var length = dir.length()
 		dir /= length
 		length /= mass

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg2q1h1r738yd"
-path="res://.godot/imported/4.png-b06d47d3549181b7d2ab96875f374b84.ctex"
+uid="uid://b505vqsq881vn"
+path="res://.godot/imported/bck_house_01.png-3dcbcd8ce808c77733f5627bce804580.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/city/4.png"
-dest_files=["res://.godot/imported/4.png-b06d47d3549181b7d2ab96875f374b84.ctex"]
+source_file="res://sprites/city/bck_house_01.png"
+dest_files=["res://.godot/imported/bck_house_01.png-3dcbcd8ce808c77733f5627bce804580.ctex"]
 
 [params]
 

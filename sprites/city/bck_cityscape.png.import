@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbv20uubapyvo"
-path="res://.godot/imported/1.png-8170084e7521f424851e8a448b61a86b.ctex"
+uid="uid://bsj4fkictw2oe"
+path="res://.godot/imported/bck_cityscape.png-93157efdc7f373ac23b7306efb1d1a3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/city/1.png"
-dest_files=["res://.godot/imported/1.png-8170084e7521f424851e8a448b61a86b.ctex"]
+source_file="res://sprites/city/bck_cityscape.png"
+dest_files=["res://.godot/imported/bck_cityscape.png-93157efdc7f373ac23b7306efb1d1a3e.ctex"]
 
 [params]
 
