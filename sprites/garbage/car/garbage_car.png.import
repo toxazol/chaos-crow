@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmxxlnq7xtles"
-path="res://.godot/imported/GarbageBag.png-9ddf2a10a27c4ec34308f218bd18d253.ctex"
+uid="uid://buog5fjmxy8fy"
+path="res://.godot/imported/garbage_car.png-ddb3902cad68ce91447e76386630c4c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/GarbageBag.png"
-dest_files=["res://.godot/imported/GarbageBag.png-9ddf2a10a27c4ec34308f218bd18d253.ctex"]
+source_file="res://sprites/garbage/car/garbage_car.png"
+dest_files=["res://.godot/imported/garbage_car.png-ddb3902cad68ce91447e76386630c4c0.ctex"]
 
 [params]
 

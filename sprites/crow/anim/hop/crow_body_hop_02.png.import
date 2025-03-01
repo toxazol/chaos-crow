@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://noxu7nccppbr"
-path="res://.godot/imported/headWithEye.png-1ab169dfd57435c3e06c328a52b3cae5.ctex"
+uid="uid://dyfibsedylhve"
+path="res://.godot/imported/crow_body_hop_02.png-0ffb3e802001365d98c959e9618fab0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/headWithEye.png"
-dest_files=["res://.godot/imported/headWithEye.png-1ab169dfd57435c3e06c328a52b3cae5.ctex"]
+source_file="res://sprites/crow/anim/hop/crow_body_hop_02.png"
+dest_files=["res://.godot/imported/crow_body_hop_02.png-0ffb3e802001365d98c959e9618fab0e.ctex"]
 
 [params]
 

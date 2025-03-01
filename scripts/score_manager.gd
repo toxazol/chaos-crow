@@ -2,13 +2,17 @@ extends Node
 
 # The player's score
 var score: int = 0
+var settledScore: int = 0
 
 # Signal for when the score changes
 signal score_updated(new_score)
 
+func settle_score(points: int):
+	settledScore += points
+
 # Set score directly
-func set_score(points: int):
-	score = points
+func update_score(points: int):
+	score = settledScore + points
 	score_updated.emit(score)
 	
 # Increase score

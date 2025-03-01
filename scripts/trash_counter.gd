@@ -1,7 +1,8 @@
-extends StaticBody2D
+extends Area2D
 
 @export var pointsForContact = 1
 @export var countUpdateTimeout = 0.3
+@export var scoreLabel: PackedScene
 
 var countUpdateTimer = 0.0
 
@@ -13,10 +14,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	countUpdateTimer += delta
-	if countUpdateTimer > countUpdateTimeout:
-		var contactCount = countParents($TrashDetector.get_overlapping_bodies())
+	if countUpdateTimer >= countUpdateTimeout:
+		var contactCount = countParents(get_overlapping_bodies())
 		#print(contactCount)
-		ScoreManager.set_score(contactCount * pointsForContact)
+		ScoreManager.update_score(contactCount * pointsForContact)
 		countUpdateTimer = 0.0
 
 func countParents(nodes: Array[Node2D]):
@@ -27,5 +28,14 @@ func countParents(nodes: Array[Node2D]):
 			print_debug("parent not found")
 			continue
 		var id = parent.get_instance_id()
-		countedSet[id] = id
+		if !countedSet.get(id):
+			countedSet[id] = id
+			updateScoreLabel(node)
 	return countedSet.size()
+
+func updateScoreLabel(node: Node2D):
+	var label: ScoreLabel = node.get_children().filter(func(c): return c is ScoreLabel).front()
+	if !label:
+		label = scoreLabel.instantiate()
+		node.add_child(label)
+	label.setScore(pointsForContact, countUpdateTimeout)

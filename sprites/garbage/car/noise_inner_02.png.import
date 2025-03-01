@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cweiknp7crl08"
-path="res://.godot/imported/GarbageBagExclude.png-47712cd8c1f52ab18d7553f27a0028a4.ctex"
+uid="uid://ciel2m7h6e5th"
+path="res://.godot/imported/noise_inner_02.png-349a22b42915dda0b30314662f9793ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/GarbageBagExclude.png"
-dest_files=["res://.godot/imported/GarbageBagExclude.png-47712cd8c1f52ab18d7553f27a0028a4.ctex"]
+source_file="res://sprites/garbage/car/noise_inner_02.png"
+dest_files=["res://.godot/imported/noise_inner_02.png-349a22b42915dda0b30314662f9793ef.ctex"]
 
 [params]
 

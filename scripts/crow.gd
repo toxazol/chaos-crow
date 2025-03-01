@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
 
-@export var speed = 500.0
 @export var friction = 20.0
-@export var hopVelocity = 200.0
-@export var flyVelocity = 500.0
+@export var hopVelocity = Vector2(500.0, 200.0)
+@export var flyVelocity = Vector2(700.0, 500.0)
 @export var takeOffTime = 0.1
 @export var maxNeckLen = 55
 @export var maxNeckHoldTimeout = 0.5
@@ -43,11 +42,14 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("left", "right")
 	if (direction and is_on_floor()) or isFlying:
-		velocity.x = direction * speed
+		# just flip if direction suddenly changed
 		if is_on_floor():
-			velocity.y = -hopVelocity 
+			velocity.y = -hopVelocity.y
+			velocity.x = direction * hopVelocity.x
 		if Input.is_action_pressed("fly"):
-			velocity.y = -flyVelocity
+			velocity.y = -flyVelocity.y
+		if isFlying:
+			velocity.x = direction * flyVelocity.x
 	else: # deceleration/friction
 		velocity.x = move_toward(velocity.x, 0, friction)
 

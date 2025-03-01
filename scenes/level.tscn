@@ -1,24 +1,25 @@
-[gd_scene load_steps=26 format=3 uid="uid://cstxl4q48gjfs"]
+[gd_scene load_steps=27 format=3 uid="uid://cstxl4q48gjfs"]
 
 [ext_resource type="Texture2D" uid="uid://dr1chtpa4diiw" path="res://sprites/city/bck_sky.png" id="1_21i41"]
 [ext_resource type="Texture2D" uid="uid://474dn7fx0066" path="res://icon.svg" id="1_bg14a"]
 [ext_resource type="Script" path="res://scripts/followCamera.gd" id="1_o20ha"]
 [ext_resource type="Texture2D" uid="uid://bsj4fkictw2oe" path="res://sprites/city/bck_cityscape.png" id="2_ldo0o"]
 [ext_resource type="Script" path="res://scripts/crow.gd" id="2_p3j1n"]
-[ext_resource type="Texture2D" uid="uid://b0dmnn1epkqie" path="res://sprites/crow/crow_body_fly_01.png" id="3_w6kty"]
+[ext_resource type="Texture2D" uid="uid://b0dmnn1epkqie" path="res://sprites/crow/anim/fly/crow_body_fly_01.png" id="3_w6kty"]
 [ext_resource type="Texture2D" uid="uid://b2r8wgadv5vm5" path="res://sprites/city/bck_ground.png" id="3_yjafk"]
-[ext_resource type="Texture2D" uid="uid://coffwmahspree" path="res://sprites/crow/crow_body_fly_02.png" id="4_2wifk"]
+[ext_resource type="Texture2D" uid="uid://coffwmahspree" path="res://sprites/crow/anim/fly/crow_body_fly_02.png" id="4_2wifk"]
 [ext_resource type="Script" path="res://scripts/house_spawner.gd" id="4_8ip41"]
-[ext_resource type="Texture2D" uid="uid://doy6mowuwktr4" path="res://sprites/crow/crow_body_fly_03.png" id="5_83ol5"]
+[ext_resource type="Texture2D" uid="uid://doy6mowuwktr4" path="res://sprites/crow/anim/fly/crow_body_fly_03.png" id="5_83ol5"]
 [ext_resource type="PackedScene" uid="uid://bhu8wxrmhtuym" path="res://scenes/house.tscn" id="5_lhgb5"]
 [ext_resource type="Texture2D" uid="uid://b6ydm771q18f" path="res://sprites/crow/crow_body_idle_01.png" id="6_rngl3"]
 [ext_resource type="Texture2D" uid="uid://k3ukxmhdq428" path="res://sprites/crow/crow_head_01_v2.png" id="7_acejv"]
 [ext_resource type="Script" path="res://scripts/trash_counter.gd" id="7_dl0hp"]
 [ext_resource type="Script" path="res://scripts/garbage_spawner.gd" id="7_w656r"]
-[ext_resource type="Texture2D" uid="uid://mrt5u6rhexsk" path="res://sprites/crow/crow_body_takeoff_01.png" id="9_mhpgu"]
+[ext_resource type="Texture2D" uid="uid://mrt5u6rhexsk" path="res://sprites/crow/anim/crow_body_takeoff_01.png" id="9_mhpgu"]
 [ext_resource type="PackedScene" uid="uid://c5xpkqysvuqaq" path="res://scenes/garbage_1.tscn" id="16_gxpha"]
 [ext_resource type="Texture2D" uid="uid://b505vqsq881vn" path="res://sprites/city/bck_house_01.png" id="18_wfiiu"]
 [ext_resource type="Script" path="res://scripts/score_counter.gd" id="23_us3bk"]
+[ext_resource type="PackedScene" uid="uid://bh3gg5k1djwnh" path="res://scenes/score_label.tscn" id="28_bfpnf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i5dby"]
 rough = true
@@ -65,7 +66,7 @@ animations = [{
 }]
 
 [sub_resource type="Curve" id="Curve_i0pup"]
-_data = [Vector2(0.00194553, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.595971), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.0735294, 0.938461), 0.0, 0.0, 0, 0, Vector2(1, 0.70989), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3l6d"]
@@ -128,16 +129,16 @@ texture = ExtResource("18_wfiiu")
 visible = false
 polygon = PackedVector2Array(-55.5, -800.5, -55.5, -797.6, -60.5, -794.6, -60.5, -787.3, -54.9, -784.2, -107, -759.5, -109.3, -759.5, -114.5, -754.3, -114.5, -753, -122.5, -749.9, -122.5, -748.9, -159.9, -734.5, -162.5, -734.5, -168.5, -726.1, -181.5, -719.8, -181.5, -718.8, -348.5, -640.8, -348.5, -639.8, -409.8, -613.5, -412.9, -613.5, -511.9, -567.5, -515, -567.5, -577.5, -533.7, -577.5, -532.8, -607.5, -519.8, -607.5, -518.9, -725.9, -472.5, -729, -472.5, -769, -453.5, -771.1, -453.5, -786.5, -442.5, -792.7, -441.5, -798.7, -441.5, -800.7, -437.5, -802.9, -437.5, -801.5, -429.2, -801.5, -423.7, -797.3, -419.5, -793.3, -419.5, -791.5, -404.3, -791.5, -400.4, -788.5, -398.4, -788.5, -396.6, -762.5, -395.5, -751.5, -395.5, -751.5, -353.8, -747.5, -348.5, -746.4, -329.5, -745.5, -329.5, -745.5, -318.4, -773.5, -294.4, -773.5, -287.4, -764.1, -281.5, -753.5, -281.5, -753.5, -276.5, -752.5, -276.5, -752.5, -239.4, -743.4, -108.5, -742.6, -108.5, -744.5, -44.5, -744.5, -21.5, -726.5, -7.79999, -726.5, 56.6, -723.5, 78.8, -723.5, 127.7, -726.3, 127.5, -730.3, 131.5, -732.3, 131.5, -733.5, 142.4, -733.5, 143.8, -731.5, 149.8, -731.5, 162.3, -722.5, 171.3, -722.5, 182.5, -721.5, 182.5, -720.5, 295.5, -720.5, 328.6, -757.5, 367.7, -757.5, 371.6, -752.5, 374.6, -752.5, 376.6, -728.4, 375.5, -725.6, 375.5, -726.5, 391.4, -726.5, 435.6, -722.5, 507.6, -722.5, 535.9, -724.6, 536.5, -729.5, 536.5, -732.5, 540.5, -734.3, 540.5, -735.5, 552.4, -735.5, 554.2, -726.5, 565.1, -726.5, 567.2, -718.9, 568.4, -720.5, 580.4, -720.5, 591.5, -716.4, 673.5, -715.5, 673.5, -714.5, 758.5, -809.3, 758.5, -816.3, 765.5, -818.8, 765.5, -815.5, 786.8, -815.5, 791.6, -812.5, 793.6, -812.5, 795.5, -682.5, 797.4, -682.5, 798.5, 357.5, 795.5, 357.5, 794.5, 634.4, 794.5, 636.4, 797.5, 643.3, 797.5, 646.3, 794.4, 719.5, 793.5, 722.4, 793.5, 805.5, 796.5, 810.4, 796.5, 812.4, 799.5, 818.3, 799.5, 822, 795.7, 826.3, 796.5, 831.6, 796.5, 834.6, 791.5, 836.5, 791.5, 836.5, 501.5, 837.5, 501.5, 837.5, 490.5, 844.5, 490.5, 847.5, 486.5, 848.7, 486.5, 849.8, 484.5, 842.5, 472, 842.5, 469.9, 832.5, 467.8, 832.5, 466.5, 815.5, 466.5, 811.5, 471.8, 811.5, 475.4, 806.8, 478.5, 805.3, 478.5, 804.2, 480.7, 811.5, 490.5, 811.5, 516.5, 812.5, 516.5, 813.5, 684.5, 813.5, 686.5, 810.5, 726.4, 810.5, 755.1, 799.7, 753.5, 795.5, 753.5, 689.4, 757.5, 666.5, 757.5, 666.5, 752.5, 665.4, 752.5, 660.5, 594.4, 660.5, 561.4, 650.4, 376.5, 649.5, 376.5, 650.5, 138.5, 650.5, 131.5, 713.5, 132.5, 815.7, 132.5, 817.7, 128.5, 818.7, 128.5, 819.8, 126.3, 816.5, 121.8, 819.3, 118.5, 821.5, 118.5, 821.5, 80.4, 815.4, 76.7, 813.5, -104.5, 813.5, -107.3, 815.5, -126.4, 815.5, -135, 817.6, -135.5, 821.5, -135.5, 828.5, -144.8, 828.5, -147.2, 825.5, -151.2, 825.5, -153, 812.5, -157, 812.5, -158.8, 791.2, -155.5, 787.8, -155.5, 777.8, -147.5, 774.9, -147.5, 776.5, -141.5, 776.5, -137.4, 783.9, -132.5, 785, -132.5, 787.9, -120.5, 788.5, -120.5, 790.5, 46.5, 790.5, 48.5, 786.5, 84.4, 786.5, 88.7, 785.8, 88.5, 783.8, 88.5, 776.6, 94.4, 660.5, 92.5, 660.5, 91.1, 647.1, 93.5, 646.5, 93.5, 645.5, 1.5, 645.5, -20.8, 642.5, -29.8, 642.5, -46.6, 655.5, -58.6, 655.5, -63.3, 651.3, -67.5, 650.5, -67.5, 650.5, -77.4, 643.4, -83.3, 641.5, -202.5, 641.5, -218.6, 637.3, -270.5, 636.4, -270.5, 631.5, -396.6, 631.5, -421.5, 676.7, -421.5, 689.5, -424.5, 693.9, -424.5, 696.5, -432.2, 696.5, -445.3, 698.4, -446.3, 700, -445.5, 706.7, -445.5, 708.7, -449.5, 711.4, -449.5, 707.5, -460, 707.5, -462.8, 609.5, -509.8, 609.5, -510.9, 535.9, -537.5, 531.9, -537.5, 452.5, -573.8, 452.5, -574.9, 411.9, -590.5, 409, -590.5, 381, -606.5, 381.5, -625.5, 381.5, -645.6, 378.5, -647.6, 378.5, -649.7, 311.3, -642.5, 298, -642.5, 266, -658.5, 264.2, -658.5, 245.5, -674.5, 245.5, -676.9, 238.1, -675.5, 236, -675.5, 118.5, -732.8, 118.5, -734.1, 99.7, -738.5, 96.9, -738.5, -25.5, -794.8, -25.5, -797.4, -35.9, -793.5, -38, -793.5)
 
-[node name="GarbageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("houseSpawner")]
+[node name="GarbageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("houseSpawner", "camera")]
 position = Vector2(0, 358)
 script = ExtResource("7_w656r")
 houseSpawner = NodePath("../HouseSpawner")
 garbagePrefabs = Array[PackedScene]([ExtResource("16_gxpha")])
+camera = NodePath("../Camera2D")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(352, 450)
 physics_material_override = SubResource("PhysicsMaterial_i5dby")
-script = ExtResource("7_dl0hp")
 
 [node name="Icon" type="Sprite2D" parent="Floor"]
 visible = false
@@ -152,6 +153,8 @@ shape = SubResource("WorldBoundaryShape2D_nlhbk")
 collision_layer = 0
 collision_mask = 2
 monitorable = false
+script = ExtResource("7_dl0hp")
+scoreLabel = ExtResource("28_bfpnf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor/TrashDetector"]
 shape = SubResource("WorldBoundaryShape2D_nlhbk")
@@ -165,7 +168,6 @@ floor_constant_speed = true
 floor_block_on_wall = false
 platform_on_leave = 2
 script = ExtResource("2_p3j1n")
-speed = 700.0
 takeOffTime = 0.2
 maxNeckLen = 80
 maxNeckHoldTimeout = 0.1
@@ -176,17 +178,18 @@ polygon = PackedVector2Array(8, -28.8, 8, -25.9, -31.7, -6, -34.1, -6, -55.2, 12
 disabled = true
 
 [node name="LegCollider" type="CollisionShape2D" parent="Crow"]
-position = Vector2(-10, 45)
+position = Vector2(-7, 46)
 shape = SubResource("RectangleShape2D_vhc3x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Crow"]
+position = Vector2(3, 1)
 sprite_frames = SubResource("SpriteFrames_kbfhr")
 animation = &"idle"
 
 [node name="Neck" type="Line2D" parent="Crow"]
 position = Vector2(26, -14)
 points = PackedVector2Array(0, 0, 11, -10)
-width = 18.0
+width = 25.0
 width_curve = SubResource("Curve_i0pup")
 default_color = Color(0, 0, 0, 1)
 
@@ -212,11 +215,9 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crow/BeakZone"]
 shape = SubResource("CircleShape2D_j3l6d")
 
-[node name="Garbage1" parent="." instance=ExtResource("16_gxpha")]
-position = Vector2(-111, 362)
-
-[node name="Garbage2" parent="." instance=ExtResource("16_gxpha")]
-position = Vector2(617, 355)
+[node name="Garbage1" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("16_gxpha")]
+position = Vector2(548, 362)
+camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("followTarget")]
 position = Vector2(192, 343)

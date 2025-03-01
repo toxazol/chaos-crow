@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mrt5u6rhexsk"
-path="res://.godot/imported/crow_body_takeoff_01.png-68a62d655a06886e95858166d3f95eb7.ctex"
+uid="uid://bntogwtlc6b8t"
+path="res://.godot/imported/noise_inner_01.png-d292a0061d3077a512839a53860318e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/crow/crow_body_takeoff_01.png"
-dest_files=["res://.godot/imported/crow_body_takeoff_01.png-68a62d655a06886e95858166d3f95eb7.ctex"]
+source_file="res://sprites/garbage/car/noise_inner_01.png"
+dest_files=["res://.godot/imported/noise_inner_01.png-d292a0061d3077a512839a53860318e1.ctex"]
 
 [params]
 
