@@ -34,7 +34,10 @@ func countParents(nodes: Array[Node2D]):
 	return countedSet.size()
 
 func updateScoreLabel(node: Node2D):
-	var label: ScoreLabel = node.get_children().filter(func(c): return c is ScoreLabel).front()
+	var label: ScoreLabel = null
+	var filteredChildren = node.get_children().filter(func(c): return c is ScoreLabel)
+	if filteredChildren.size():
+		label = filteredChildren.front()
 	if !label:
 		label = scoreLabel.instantiate()
 		node.add_child(label)

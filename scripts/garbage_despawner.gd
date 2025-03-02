@@ -32,9 +32,10 @@ func checkDespawnables():
 			#print("despawn triggered")
 			#print("despawnX is ", despawnX)
 			settleScoreAndDespawn(child)
-			
 	if isJustEmptyBags:
 		queue_free()
+		
+
 func settleScoreAndDespawn(node: Node2D):
 	var points = extractPoints(node)
 	print("extracted ", points, " points from ", node.name)
@@ -43,9 +44,13 @@ func settleScoreAndDespawn(node: Node2D):
 	node.queue_free()
 	#print("settled score and despawned ", node.name)
 
+
 func extractPoints(node: Node2D) -> int:
 	for child in node.get_children():
-		var scoreLabel: ScoreLabel = child.get_children().filter(func(c): return c is ScoreLabel).front()
+		var scoreLabel: ScoreLabel = null
+		var filteredChildren = child.get_children().filter(func(c): return c is ScoreLabel)
+		if filteredChildren.size():
+			scoreLabel = filteredChildren.front()
 		# there may be hidden 0 labels
 		if scoreLabel and scoreLabel.score > 0:
 			return scoreLabel.score

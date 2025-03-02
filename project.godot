@@ -21,8 +21,12 @@ ScoreManager="*res://scripts/score_manager.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=800
+window/size/viewport_width=960
+window/size/viewport_height=632
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg")
 
 [global_group]
 
@@ -69,4 +73,6 @@ peck={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+textures/default_filters/texture_mipmap_bias=2.0
 environment/defaults/default_clear_color=Color(0.368627, 0.6, 0.67451, 1)

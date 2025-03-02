@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhu8wxrmhtuym"]
+[gd_scene load_steps=3 format=3 uid="uid://bhu8wxrmhtuym"]
 
+[ext_resource type="Script" path="res://scripts/house_despawner.gd" id="1_hrcmk"]
 [ext_resource type="Texture2D" uid="uid://b505vqsq881vn" path="res://sprites/city/bck_house_01.png" id="1_ie74i"]
 
 [node name="House" type="StaticBody2D"]
+script = ExtResource("1_hrcmk")
+despawnLeftDistance = 6000.0
 
 [node name="BckHouse01" type="Sprite2D" parent="."]
 texture = ExtResource("1_ie74i")

@@ -11,6 +11,7 @@ extends CharacterBody2D
 var isFlying = false
 var wasFlying = false
 var isTakeOff = false
+var isLanding = false
 var thingInBeak: Node2D = null
 var initialHeadTransform
 var initialNeckBasePostion
@@ -42,7 +43,6 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("left", "right")
 	if (direction and is_on_floor()) or isFlying:
-		# just flip if direction suddenly changed
 		if is_on_floor():
 			velocity.y = -hopVelocity.y
 			velocity.x = direction * hopVelocity.x
@@ -76,6 +76,8 @@ func _process(delta: float):
 		$AnimatedSprite2D.play("takeoff")
 	elif isFlying:
 		$AnimatedSprite2D.play("fly")
+	elif direction:
+		$AnimatedSprite2D.play("hop")
 	else:
 		$AnimatedSprite2D.play("idle")
 

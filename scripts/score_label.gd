@@ -15,7 +15,7 @@ func setScore(points: int, timeout: float):
 	
 	
 func resetScore():
-	print("reset score for ", get_parent().get_parent().name)
+	#print("reset score for ", get_parent().get_parent().name)
 	score = 0
 	text = str(score)
 	visible = false
