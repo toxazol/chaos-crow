@@ -57,6 +57,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float):
+	# random flapping sounds
+	if isFlying and not $Flap.is_playing():
+		$Flap.play()
+	if not isFlying:
+		$Flap.stop()
+		
 	if thingInBeak:
 		# var vecToObj = thingInBeak.global_position - $BeakZone.global_position
 		# $HeadSprite.rotation = $HeadSprite.position.angle_to(vecToObj)

@@ -3,15 +3,28 @@ extends Camera2D
 class_name FollowCamera
 
 @export var followTarget: Node2D
+@export var rightWall: Node2D
+@export var ceiling: Node2D
+@export var maxZoom = Vector2(0.8, 0.8)
+@export var minZoom = Vector2(0.3, 0.3)
+@export var zoomSpeed = 0.5
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	limit_right = rightWall.global_position.x
+	limit_top = ceiling.global_position.y
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position = followTarget.global_position
+	var targetZoom: Vector2
+	if followTarget.isFlying:
+		targetZoom = minZoom
+	else:
+		targetZoom = maxZoom
+	zoom = zoom.lerp(targetZoom, zoomSpeed * delta)
 
 
 func get_viewport_left_border():

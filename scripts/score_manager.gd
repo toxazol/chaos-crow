@@ -2,6 +2,7 @@ extends Node
 
 # The player's score
 var score: int = 0
+var liveScore: int = 0
 var settledScore: int = 0
 
 # Signal for when the score changes
@@ -11,18 +12,21 @@ func settle_score(points: int):
 	settledScore += points
 
 # Set score directly
-func update_score(points: int):
-	score = settledScore + points
-	score_updated.emit(score)
+#func update_score(points: int):
+	#score = settledScore + points
+	#score_updated.emit(score)
 	
 # Increase score
 func add_score(points: int):
-	score = max(0, score + points)  # Prevent negative scores
+	liveScore = max(0, liveScore + points)  # Prevent negative scores
+	score = liveScore + settledScore
 	score_updated.emit(score)  # Emit signal to update UI
 	
 # Reset score
 func reset_score():
 	score = 0
+	settledScore = 0
+	liveScore = 0
 	score_updated.emit(score)
 	
 func get_high_score():

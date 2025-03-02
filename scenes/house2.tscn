@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca82j04rfhgyk"]
+
+[ext_resource type="Script" path="res://scripts/house_despawner.gd" id="1_erauk"]
+[ext_resource type="Texture2D" uid="uid://cjx1y6yhbvd7u" path="res://sprites/city/bck_house_02.png" id="2_rteoj"]
+[ext_resource type="Script" path="res://scripts/trash_counter.gd" id="3_8hcvt"]
+[ext_resource type="PackedScene" uid="uid://cxntmvx214l1n" path="res://scenes/score_label_cool.tscn" id="4_8oiur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq3tx"]
+size = Vector2(1608, 74)
+
+[node name="House" type="StaticBody2D"]
+script = ExtResource("1_erauk")
+despawnLeftDistance = 6000.0
+
+[node name="BckHouse01" type="Sprite2D" parent="."]
+texture = ExtResource("2_rteoj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-789.3, -775, -835.5, 788.8, 841.7, 804, 809.5, -777.5)
+
+[node name="TrashDetector" type="Area2D" parent="."]
+position = Vector2(0, -820)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_8hcvt")
+pointsForContact = 2
+scoreLabel = ExtResource("4_8oiur")
+labelColor = Color(1, 0, 1, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrashDetector"]
+position = Vector2(6, 27)
+shape = SubResource("RectangleShape2D_yq3tx")

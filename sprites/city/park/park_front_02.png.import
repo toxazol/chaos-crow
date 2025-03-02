@@ -2,24 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qdofuq3056ir"
-path="res://.godot/imported/gradient.png-60a19f77abd26d2f670cb74944c6631c.ctex"
+uid="uid://dkyxlbd5eagoi"
+path="res://.godot/imported/park_front_02.png-c2f7182e55efa13bc9a44adbb8e7f0ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gradient.png"
-dest_files=["res://.godot/imported/gradient.png-60a19f77abd26d2f670cb74944c6631c.ctex"]
+source_file="res://sprites/city/park/park_front_02.png"
+dest_files=["res://.godot/imported/park_front_02.png-c2f7182e55efa13bc9a44adbb8e7f0ef.ctex"]
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1

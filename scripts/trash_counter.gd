@@ -3,6 +3,7 @@ extends Area2D
 @export var pointsForContact = 1
 @export var countUpdateTimeout = 0.3
 @export var scoreLabel: PackedScene
+@export var labelColor: Color
 
 var countUpdateTimer = 0.0
 
@@ -17,7 +18,7 @@ func _process(delta: float) -> void:
 	if countUpdateTimer >= countUpdateTimeout:
 		var contactCount = countParents(get_overlapping_bodies())
 		#print(contactCount)
-		ScoreManager.update_score(contactCount * pointsForContact)
+		#ScoreManager.update_score(contactCount * pointsForContact)
 		countUpdateTimer = 0.0
 
 func countParents(nodes: Array[Node2D]):
@@ -38,6 +39,7 @@ func updateScoreLabel(node: Node2D):
 	var filteredChildren = node.get_children().filter(func(c): return c is ScoreLabel)
 	if filteredChildren.size():
 		label = filteredChildren.front()
+		label.add_theme_color_override("font_color", labelColor)
 	if !label:
 		label = scoreLabel.instantiate()
 		node.add_child(label)

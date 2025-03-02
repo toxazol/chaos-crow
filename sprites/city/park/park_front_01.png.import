@@ -2,24 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmyhig52pp2d4"
-path="res://.godot/imported/trash_fish.png-4dd3b5cb629d9737c82a3abe82e35897.ctex"
+uid="uid://j7d7ikd17f7i"
+path="res://.godot/imported/park_front_01.png-8cad08830f4f49836dd2de382d37b3fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/garbage/items/trash_fish.png"
-dest_files=["res://.godot/imported/trash_fish.png-4dd3b5cb629d9737c82a3abe82e35897.ctex"]
+source_file="res://sprites/city/park/park_front_01.png"
+dest_files=["res://.godot/imported/park_front_01.png-8cad08830f4f49836dd2de382d37b3fe.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=2
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1

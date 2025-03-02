@@ -7,6 +7,8 @@ var timeOut = 0.0
 var score = 0
 
 func setScore(points: int, timeout: float):
+	if points != score:
+		ScoreManager.add_score(points)
 	score = points
 	text = str(score)
 	timeOut = timeout
@@ -15,6 +17,7 @@ func setScore(points: int, timeout: float):
 	
 	
 func resetScore():
+	ScoreManager.add_score(-score)
 	#print("reset score for ", get_parent().get_parent().name)
 	score = 0
 	text = str(score)

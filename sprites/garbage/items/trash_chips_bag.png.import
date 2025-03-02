@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/trash_chips_bag.png-4245931d3104f0f75997fec38
 
 [params]
 
-compress/mode=4
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

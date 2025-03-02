@@ -8,11 +8,14 @@ class_name HouseSpawner
 @export var camera: FollowCamera
 @export var spawnTimeout = 1.0
 
+@export var park: Node2D
+
 ## add both if any spawned manualy 
 @export var leftMost: Node2D
 @export var rightMost: Node2D
 
 var spawnTimer = 0.0
+var isStopSpawn = false
 
 signal house_spawned_right
 
@@ -25,11 +28,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if spawnTimer < spawnTimeout:
+	if isStopSpawn or spawnTimer < spawnTimeout:
 		spawnTimer += delta
 		return
 	else:
 		spawnTimer = 0.0
+		
+	# stop spawning if park is close
+	if rightMost.global_position.x + maxGap + 1000 > park.global_position.x:
+		isStopSpawn = true 
+	
 	var rBorder = camera.get_viewport_right_border()
 	var lBorder = camera.get_viewport_left_border()
 

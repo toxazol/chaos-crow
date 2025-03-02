@@ -3,7 +3,7 @@ extends Node2D
 @export var houseSpawner: HouseSpawner
 @export var garbagePrefabs: Array[PackedScene]
 @export var distanceFromHouse = 1000.0
-@export var camera: FollowCamera
+@export var garbageTruck: Node2D
 
 #var garbagePrefab = preload("res://scenes/garbage_1.tscn")
 #
@@ -58,7 +58,7 @@ func spawn(x: float):
 	instance.set_physics_process(false) # Disable physics initially
 	instance.set_process(false)
 	call_deferred("add_child", instance)  # Ensure safe addition to the scene
-	instance.camera = camera
+	instance.garbageTruck = garbageTruck
 	instance.position.x = x
 	await get_tree().process_frame  # Wait for the next frame
 	instance.set_physics_process(true)

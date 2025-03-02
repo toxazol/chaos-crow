@@ -1,8 +1,7 @@
 extends Node2D
 
 @export var distanceCheckTimeout = 1.0
-@export var despawnLeftDistance = 3000.0
-@export var camera: FollowCamera
+@export var garbageTruck: Node2D
 
 var distanceCheckTimer = 0.0
 
@@ -19,7 +18,7 @@ func _process(delta: float) -> void:
 	distanceCheckTimer += delta
 
 func checkDespawnables():
-	var despawnX = camera.get_viewport_left_border() - despawnLeftDistance
+	var despawnX = garbageTruck.global_position.x
 	var children = get_children()
 	# despawn garbage bags and garbage gropup when all contents are despawned 
 	var isJustEmptyBags = true
