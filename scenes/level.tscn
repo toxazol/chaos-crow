@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://cstxl4q48gjfs"]
+[gd_scene load_steps=65 format=4 uid="uid://cstxl4q48gjfs"]
 
 [ext_resource type="Texture2D" uid="uid://dr1chtpa4diiw" path="res://sprites/city/bck_sky.png" id="1_21i41"]
 [ext_resource type="Script" path="res://scripts/followCamera.gd" id="1_o20ha"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://celhsnnbra50s" path="res://scenes/garbage_performance_test.tscn" id="20_2oytg"]
 [ext_resource type="PackedScene" uid="uid://vj1v31w6w160" path="res://scenes/garbage_2.tscn" id="20_u0om2"]
 [ext_resource type="Script" path="res://scripts/score_counter.gd" id="23_us3bk"]
+[ext_resource type="FontFile" uid="uid://c4wv16ttele8b" path="res://misc/Kurland-Regular.otf" id="24_b416v"]
 [ext_resource type="Script" path="res://scripts/garbage_car.gd" id="25_hyf7o"]
 [ext_resource type="Texture2D" uid="uid://c3e8648tmox65" path="res://sprites/garbage/car/garbage_car_body.png" id="26_28njp"]
 [ext_resource type="Texture2D" uid="uid://bntogwtlc6b8t" path="res://sprites/garbage/car/noise_inner_01.png" id="26_d60k0"]
@@ -368,7 +369,6 @@ shape = SubResource("CircleShape2D_j3l6d")
 
 [node name="Flap" type="AudioStreamPlayer" parent="Crow"]
 stream = SubResource("AudioStreamRandomizer_lp7e8")
-volume_db = -8.0
 
 [node name="GarbageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("houseSpawner", "garbageTruck")]
 position = Vector2(0, 358)
@@ -394,7 +394,7 @@ collision_mask = 2
 monitorable = false
 script = ExtResource("7_dl0hp")
 scoreLabel = ExtResource("28_bfpnf")
-labelColor = Color(0, 1, 0, 1)
+labelColor = Color(0, 1, 1, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor/TrashDetector"]
 shape = SubResource("WorldBoundaryShape2D_nlhbk")
@@ -423,12 +423,16 @@ layout_mode = 2
 
 [node name="ScoreLabel" type="Label" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("24_b416v")
+theme_override_font_sizes/font_size = 30
 text = "Chaos points:"
 
 [node name="ScoreValue" type="Label" parent="UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("24_b416v")
+theme_override_font_sizes/font_size = 30
 text = "0"
 script = ExtResource("23_us3bk")
 
@@ -439,7 +443,7 @@ collision_mask = 16
 sync_to_physics = false
 script = ExtResource("25_hyf7o")
 crow = NodePath("../Crow")
-speed = 60.0
+speed = 80.0
 minDistFromPlayer = 3500.0
 park = NodePath("../Park")
 
@@ -456,7 +460,7 @@ texture = ExtResource("26_28njp")
 libraries = {
 "": SubResource("AnimationLibrary_626xm")
 }
-speed_scale = 0.1
+speed_scale = 0.13
 
 [node name="GarbageCarWheel" type="Sprite2D" parent="GarbageCar"]
 z_index = 6
@@ -588,11 +592,13 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="EndGameOverlay/VBoxContainer/LastScore"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("24_b416v")
 theme_override_font_sizes/font_size = 40
 text = "Last score:"
 
 [node name="Value" type="Label" parent="EndGameOverlay/VBoxContainer/LastScore"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("24_b416v")
 theme_override_font_sizes/font_size = 40
 text = "0
 "
@@ -603,12 +609,14 @@ layout_mode = 2
 [node name="Label" type="Label" parent="EndGameOverlay/VBoxContainer/HighScore"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.780392, 0.639216, 0.254902, 1)
+theme_override_fonts/font = ExtResource("24_b416v")
 theme_override_font_sizes/font_size = 40
 text = "High score:"
 
 [node name="Value" type="Label" parent="EndGameOverlay/VBoxContainer/HighScore"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.780392, 0.639216, 0.254902, 1)
+theme_override_fonts/font = ExtResource("24_b416v")
 theme_override_font_sizes/font_size = 40
 text = "0
 "
@@ -619,11 +627,13 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="EndGameOverlay/VBoxContainer/Ranking"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("24_b416v")
 theme_override_font_sizes/font_size = 40
 text = "Ranking:"
 
 [node name="Value" type="Label" parent="EndGameOverlay/VBoxContainer/Ranking"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("24_b416v")
 theme_override_font_sizes/font_size = 40
 text = "F
 "
@@ -634,12 +644,14 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="EndGameOverlay/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("24_b416v")
+theme_override_font_sizes/font_size = 20
 text = "Try again"
 script = ExtResource("37_8frj6")
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_ujtjd")
-volume_db = -7.0
+volume_db = -8.0
 autoplay = true
 
 [connection signal="body_entered" from="GarbageCar/DeathInitArea" to="GarbageCar/DeathInitArea" method="_on_body_entered"]
