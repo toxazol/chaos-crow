@@ -26,7 +26,7 @@ window/size/viewport_height=632
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg")
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg", "res://addons/softbody2d/plugin.cfg")
 
 [global_group]
 
@@ -67,6 +67,7 @@ peck={
 2d_physics/layer_3="bagIn"
 2d_physics/layer_4="bagOut"
 2d_physics/layer_5="crow"
+2d_physics/layer_6="garbageTruck"
 
 [rendering]
 

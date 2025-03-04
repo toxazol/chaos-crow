@@ -7,6 +7,26 @@ extends CharacterBody2D
 @export var takeOffTime = 0.1
 @export var maxNeckLen = 55
 @export var maxNeckHoldTimeout = 0.5
+@export var landingAirResist = 100.0
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var neck: Line2D = $Neck
+@onready var head_sprite: Sprite2D = $HeadSprite
+@onready var neck_base: Node2D = $HeadSprite/NeckBase
+@onready var beak_zone: Area2D = $BeakZone
+@onready var flap: AudioStreamPlayer = $Flap
+@onready var landing_ray_cast: RayCast2D = $LandingRayCast
+
+
+enum CrowState {
+	Idling,
+	Hopping,
+	Flying,
+	TakingOff,
+	Landing
+}
+var curState: CrowState = CrowState.Idling
+var stateChangeTimer = 0.0
 
 var isFlying = false
 var wasFlying = false
@@ -21,8 +41,8 @@ var takeOffTimer = 0.0
 var holdTimer = 0.0
 
 func _ready():
-	initialHeadTransform = $HeadSprite.transform
-	initialNeckBasePostion = $Neck.points[1]
+	initialHeadTransform = head_sprite.transform
+	initialNeckBasePostion = neck.points[1]
 
 
 func _physics_process(delta: float) -> void:
@@ -39,7 +59,16 @@ func _physics_process(delta: float) -> void:
 		isFlying = true
 	if isFlying and not wasFlying:
 		isTakeOff = true
-
+		
+	# landing check
+	isLanding = false
+	if isFlying and velocity.y > 0: # heading downwards
+		#var dir = landing_ray_cast.target_position
+		#var dirLen = dir.length()
+		if landing_ray_cast.is_colliding():
+			# add air resistance
+			velocity.y -= pow(velocity.y, 2) * 0.005 * delta
+			isLanding = true
 	# Get the input direction and handle the movement/deceleration.
 	direction = Input.get_axis("left", "right")
 	if (direction and is_on_floor()) or isFlying:
@@ -57,18 +86,28 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float):
+	
+	#match curState:
+		#CrowState.Idling:
+			#...
+		#CrowState.TakingOff:
+			#takeOffTimer -= delta
+			#if takeOffTimer <= 0.0:
+				#changeState()
+			
+	
 	# random flapping sounds
-	if isFlying and not $Flap.is_playing():
-		$Flap.play()
+	if isFlying and not flap.is_playing():
+		flap.play()
 	if not isFlying:
-		$Flap.stop()
+		flap.stop()
 		
 	if thingInBeak:
-		# var vecToObj = thingInBeak.global_position - $BeakZone.global_position
-		# $HeadSprite.rotation = $HeadSprite.position.angle_to(vecToObj)
-		$HeadSprite.global_position = thingInBeak.global_position
-		$Neck.points[1] = $HeadSprite/NeckBase.global_position - $Neck.global_position
-		$Neck.points[1].x *= sign(scale.y) # for some reason scale.y = -1 (not x) when we are flipped
+		# var vecToObj = thingInBeak.global_position - beak_zone.global_position
+		# head_sprite.rotation = head_sprite.position.angle_to(vecToObj)
+		head_sprite.global_position = thingInBeak.global_position
+		neck.points[1] = neck_base.global_position - neck.global_position
+		neck.points[1].x *= sign(scale.y) # for some reason scale.y = -1 (not x) when we are flipped
 	
 	# animation
 	if isTakeOff:
@@ -79,13 +118,16 @@ func _process(delta: float):
 			takeOffTimer = 0.0
 		
 	if isTakeOff:
-		$AnimatedSprite2D.play("takeoff")
+		animated_sprite_2d.play("takeoff")
+	elif isLanding:
+		print_rich("[color=cyan]animating landing[/color]")
+		animated_sprite_2d.play("landing")
 	elif isFlying:
-		$AnimatedSprite2D.play("fly")
+		animated_sprite_2d.play("fly")
 	elif direction:
-		$AnimatedSprite2D.play("hop")
+		animated_sprite_2d.play("hop")
 	else:
-		$AnimatedSprite2D.play("idle")
+		animated_sprite_2d.play("idle")
 
 	# sprites flipping
 	if direction && direction != prevDirection:
@@ -101,30 +143,30 @@ func _process(delta: float):
 
 
 func isNeckTooLong() -> bool:
-	return thingInBeak and $Neck.points[1].distance_squared_to($Neck.points[0]) > maxNeckLen*maxNeckLen
+	return thingInBeak and neck.points[1].distance_squared_to(neck.points[0]) > maxNeckLen*maxNeckLen
 
 
 func peck():
 	if thingInBeak:
 		thingInBeak.call("drop")
 		thingInBeak = null
-		$HeadSprite.transform = initialHeadTransform
-		$Neck.points[1] = initialNeckBasePostion
+		head_sprite.transform = initialHeadTransform
+		neck.points[1] = initialNeckBasePostion
 		return
 
-	var bodies = $BeakZone.get_overlapping_bodies()
+	var bodies = beak_zone.get_overlapping_bodies()
 	var nearest: Node2D = null
 	var nearestDistSq: float
 	for body in bodies:
 		if body.has_method("stick"):
 			if has_overlapping_trash_bags(body):
 				continue
-			var distSq = body.global_position.distance_squared_to($BeakZone.global_position)
+			var distSq = body.global_position.distance_squared_to(beak_zone.global_position)
 			if !nearest or distSq < nearestDistSq:
 				nearest = body
 				nearestDistSq = distSq
 	if nearest:
-		nearest.call("stick", $BeakZone)
+		nearest.call("stick", beak_zone)
 		thingInBeak = nearest
 
 

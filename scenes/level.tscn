@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://cstxl4q48gjfs"]
+[gd_scene load_steps=66 format=4 uid="uid://cstxl4q48gjfs"]
 
 [ext_resource type="Texture2D" uid="uid://dr1chtpa4diiw" path="res://sprites/city/bck_sky.png" id="1_21i41"]
 [ext_resource type="Script" path="res://scripts/followCamera.gd" id="1_o20ha"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/garbage_spawner.gd" id="7_w656r"]
 [ext_resource type="Texture2D" uid="uid://mrt5u6rhexsk" path="res://sprites/crow/anim/crow_body_takeoff_01.png" id="9_mhpgu"]
 [ext_resource type="Texture2D" uid="uid://dv68foyunf413" path="res://sprites/crow/anim/hop/crow_body_hop_01.png" id="16_kkvbt"]
+[ext_resource type="Texture2D" uid="uid://bn5w4ggkg5txb" path="res://sprites/crow/anim/crow_body_land.png" id="16_thbyh"]
 [ext_resource type="Texture2D" uid="uid://dyfibsedylhve" path="res://sprites/crow/anim/hop/crow_body_hop_02.png" id="17_s0d6y"]
 [ext_resource type="Texture2D" uid="uid://wy4qf7n8pslu" path="res://sprites/crow/crow_head_01_v1.png" id="18_n62i8"]
 [ext_resource type="Texture2D" uid="uid://bsdwhsvtv4se5" path="res://sprites/crow/anim/idle/crow_body_idle_02.png" id="19_7f722"]
@@ -88,6 +89,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_thbyh")
+}],
+"loop": true,
+"name": &"landing",
 "speed": 5.0
 }, {
 "frames": [{
@@ -313,7 +322,7 @@ camera = NodePath("../../Camera2D")
 [node name="Crow" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(192, 343)
 collision_layer = 16
-collision_mask = 17
+collision_mask = 49
 slide_on_ceiling = false
 floor_stop_on_slope = false
 floor_constant_speed = true
@@ -333,10 +342,15 @@ disabled = true
 position = Vector2(-7, 46)
 shape = SubResource("RectangleShape2D_vhc3x")
 
+[node name="LandingRayCast" type="RayCast2D" parent="Crow"]
+position = Vector2(-7, 46)
+target_position = Vector2(0, 300)
+collision_mask = 33
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Crow"]
 position = Vector2(3, 1)
 sprite_frames = SubResource("SpriteFrames_kbfhr")
-animation = &"hop"
+animation = &"landing"
 
 [node name="Neck" type="Line2D" parent="Crow"]
 position = Vector2(26, -12)
@@ -369,6 +383,8 @@ shape = SubResource("CircleShape2D_j3l6d")
 
 [node name="Flap" type="AudioStreamPlayer" parent="Crow"]
 stream = SubResource("AudioStreamRandomizer_lp7e8")
+
+[node name="Node2D" type="Node2D" parent="Crow"]
 
 [node name="GarbageSpawner" type="Node2D" parent="." node_paths=PackedStringArray("houseSpawner", "garbageTruck")]
 position = Vector2(0, 358)
@@ -438,7 +454,7 @@ script = ExtResource("23_us3bk")
 
 [node name="GarbageCar" type="AnimatableBody2D" parent="." node_paths=PackedStringArray("crow", "park")]
 position = Vector2(-4743, 227)
-collision_layer = 16
+collision_layer = 32
 collision_mask = 16
 sync_to_physics = false
 script = ExtResource("25_hyf7o")
