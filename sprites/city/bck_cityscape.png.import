@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bck_cityscape.png-93157efdc7f373ac23b7306efb1
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

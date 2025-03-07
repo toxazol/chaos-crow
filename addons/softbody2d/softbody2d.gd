@@ -707,7 +707,7 @@ func _is_line_in_area(a: Vector2, b: Vector2, polygon_verts: PackedVector2Array)
 
 func _create_skeleton() -> Skeleton2D:
 	var skeleton2d = Skeleton2D.new()
-	skeleton2d.resource_local_to_scene = true
+	#skeleton2d.resource_local_to_scene = true # doesn't work in 4.4
 	skeleton2d.name = "Skeleton2D"
 	add_child(skeleton2d)
 	if Engine.is_editor_hint():

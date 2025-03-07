@@ -1,10 +1,10 @@
 [gd_scene load_steps=86 format=3 uid="uid://vj1v31w6w160"]
 
-[ext_resource type="Script" path="res://scripts/garbage_despawner.gd" id="1_sa2oj"]
+[ext_resource type="Script" uid="uid://dili0em33y0ym" path="res://scripts/garbage_despawner.gd" id="1_sa2oj"]
 [ext_resource type="Texture2D" uid="uid://2km4cagfemci" path="res://sprites/garbage/items/trash_banana_01.png" id="2_xvpo1"]
 [ext_resource type="PackedScene" uid="uid://cxpgfhbaedt2" path="res://scenes/peckable_rigidbody.tscn" id="3_gu1hw"]
 [ext_resource type="PhysicsMaterial" uid="uid://deqagbq7eod2b" path="res://samples/softbody2d/softbody2d_phys_bouncy.tres" id="4_ok4ls"]
-[ext_resource type="Script" path="res://scripts/peckable_rigidbody.gd" id="5_s3qqb"]
+[ext_resource type="Script" uid="uid://dposjxsan7w55" path="res://scripts/peckable_rigidbody.gd" id="5_s3qqb"]
 [ext_resource type="Texture2D" uid="uid://dmyhig52pp2d4" path="res://sprites/garbage/items/trash_fish.png" id="8_g22cm"]
 [ext_resource type="PhysicsMaterial" uid="uid://2kay8j53abmv" path="res://samples/softbody2d/softbody2d_phys_slippery.tres" id="9_8r6fg"]
 [ext_resource type="Texture2D" uid="uid://bwkt1a8aaaxyi" path="res://sprites/garbage/items/trash_apple.png" id="9_pbps2"]
@@ -721,7 +721,7 @@ metadata/connected_nodes_idx = [11, 12]
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-9" type="Bone2D" parent="BananaPeel/Skeleton2D"]
-position = Vector2(55.9805, 60.2569)
+position = Vector2(55.9805, 60.2568)
 rotation = 0.0217958
 rest = Transform2D(0.999762, 0.0217934, -0.0217934, 0.999762, 55.9805, 60.2568)
 auto_calculate_length_and_angle = false
@@ -881,7 +881,7 @@ metadata/connected_nodes_idx = [9, 10, 19, 11, 12]
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-21" type="Bone2D" parent="BananaPeel/Skeleton2D"]
-position = Vector2(78.0134, 61.2691)
+position = Vector2(78.0134, 61.269)
 rotation = -1.74286
 rest = Transform2D(-0.171221, -0.985233, 0.985233, -0.171221, 78.0134, 61.269)
 auto_calculate_length_and_angle = false
@@ -894,7 +894,7 @@ metadata/connected_nodes_idx = [23, 16, 18, 19, 22]
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-22" type="Bone2D" parent="BananaPeel/Skeleton2D"]
-position = Vector2(75.8048, 71.5354)
+position = Vector2(75.8048, 71.5353)
 rotation = 0.0337198
 rest = Transform2D(0.999431, 0.0337161, -0.0337161, 0.999431, 75.8048, 71.5353)
 auto_calculate_length_and_angle = false

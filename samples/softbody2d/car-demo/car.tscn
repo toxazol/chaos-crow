@@ -1,9 +1,9 @@
 [gd_scene load_steps=139 format=3 uid="uid://dj7rr4fsairae"]
 
-[ext_resource type="Texture2D" uid="uid://ck74jr1mnd8y" path="res://samples/softbody2d/Boiled_Egg_Half.png" id="1_l6w30"]
-[ext_resource type="Script" path="res://samples/softbody2d/car-demo/car.gd" id="1_w81vk"]
-[ext_resource type="Script" path="res://addons/softbody2d/softbody2d.gd" id="2_tpicg"]
-[ext_resource type="Texture2D" uid="uid://deauxld8un6xt" path="res://samples/softbody2d/softbody2d_banner.jpg" id="4_tu3v1"]
+[ext_resource type="Texture2D" uid="uid://bip7m76h75kgk" path="res://samples/softbody2d/Boiled_Egg_Half.png" id="1_l6w30"]
+[ext_resource type="Script" uid="uid://ubgibw5nyqt" path="res://samples/softbody2d/car-demo/car.gd" id="1_w81vk"]
+[ext_resource type="Script" uid="uid://ckc1y1kk6kmuw" path="res://addons/softbody2d/softbody2d.gd" id="2_tpicg"]
+[ext_resource type="Texture2D" uid="uid://bmkvjo72a2gym" path="res://samples/softbody2d/softbody2d_banner.jpg" id="4_tu3v1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2r1gp"]
 absorbent = true

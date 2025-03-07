@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/crow_body_takeoff_01.png-ebcd0a32b06ce8a931d2
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

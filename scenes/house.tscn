@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bhu8wxrmhtuym"]
 
-[ext_resource type="Script" path="res://scripts/house_despawner.gd" id="1_hrcmk"]
+[ext_resource type="Script" uid="uid://dkv40sisvlwsa" path="res://scripts/house_despawner.gd" id="1_hrcmk"]
 [ext_resource type="Texture2D" uid="uid://b505vqsq881vn" path="res://sprites/city/bck_house_01.png" id="1_ie74i"]
-[ext_resource type="Script" path="res://scripts/trash_counter.gd" id="3_urcvf"]
+[ext_resource type="Script" uid="uid://cn4fy1ouoeti6" path="res://scripts/trash_counter.gd" id="3_urcvf"]
 [ext_resource type="PackedScene" uid="uid://cxntmvx214l1n" path="res://scenes/score_label_cool.tscn" id="4_hil6g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sfog3"]

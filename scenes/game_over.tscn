@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxfuvx87u773"]
 
-[ext_resource type="Script" path="res://scripts/restartButton.gd" id="1_7xl3m"]
+[ext_resource type="Script" uid="uid://doln3wxxfhx6r" path="res://scripts/restartButton.gd" id="1_7xl3m"]
 [ext_resource type="Texture2D" uid="uid://dr1chtpa4diiw" path="res://sprites/city/bck_sky.png" id="1_8lqay"]
 [ext_resource type="FontFile" uid="uid://c4wv16ttele8b" path="res://misc/Kurland-Regular.otf" id="2_vt31w"]
 

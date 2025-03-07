@@ -1,19 +1,19 @@
-[gd_scene load_steps=66 format=4 uid="uid://cstxl4q48gjfs"]
+[gd_scene load_steps=65 format=4 uid="uid://cstxl4q48gjfs"]
 
 [ext_resource type="Texture2D" uid="uid://dr1chtpa4diiw" path="res://sprites/city/bck_sky.png" id="1_21i41"]
-[ext_resource type="Script" path="res://scripts/followCamera.gd" id="1_o20ha"]
+[ext_resource type="Script" uid="uid://dd0gyxroipgkp" path="res://scripts/followCamera.gd" id="1_o20ha"]
 [ext_resource type="Texture2D" uid="uid://bsj4fkictw2oe" path="res://sprites/city/bck_cityscape.png" id="2_ldo0o"]
-[ext_resource type="Script" path="res://scripts/crow.gd" id="2_p3j1n"]
+[ext_resource type="Script" uid="uid://d2llpmq5t62s" path="res://scripts/crow.gd" id="2_p3j1n"]
 [ext_resource type="Texture2D" uid="uid://b0dmnn1epkqie" path="res://sprites/crow/anim/fly/crow_body_fly_01.png" id="3_w6kty"]
 [ext_resource type="Texture2D" uid="uid://b2r8wgadv5vm5" path="res://sprites/city/bck_ground.png" id="3_yjafk"]
 [ext_resource type="Texture2D" uid="uid://coffwmahspree" path="res://sprites/crow/anim/fly/crow_body_fly_02.png" id="4_2wifk"]
-[ext_resource type="Script" path="res://scripts/house_spawner.gd" id="4_8ip41"]
+[ext_resource type="Script" uid="uid://cd23flca4uiv6" path="res://scripts/house_spawner.gd" id="4_8ip41"]
 [ext_resource type="Texture2D" uid="uid://doy6mowuwktr4" path="res://sprites/crow/anim/fly/crow_body_fly_03.png" id="5_83ol5"]
 [ext_resource type="PackedScene" uid="uid://bhu8wxrmhtuym" path="res://scenes/house.tscn" id="5_lhgb5"]
 [ext_resource type="PackedScene" uid="uid://ca82j04rfhgyk" path="res://scenes/house2.tscn" id="6_48tf5"]
 [ext_resource type="Texture2D" uid="uid://b6ydm771q18f" path="res://sprites/crow/anim/idle/crow_body_idle_01.png" id="6_rngl3"]
-[ext_resource type="Script" path="res://scripts/trash_counter.gd" id="7_dl0hp"]
-[ext_resource type="Script" path="res://scripts/garbage_spawner.gd" id="7_w656r"]
+[ext_resource type="Script" uid="uid://cn4fy1ouoeti6" path="res://scripts/trash_counter.gd" id="7_dl0hp"]
+[ext_resource type="Script" uid="uid://yra0yhernl7s" path="res://scripts/garbage_spawner.gd" id="7_w656r"]
 [ext_resource type="Texture2D" uid="uid://mrt5u6rhexsk" path="res://sprites/crow/anim/crow_body_takeoff_01.png" id="9_mhpgu"]
 [ext_resource type="Texture2D" uid="uid://dv68foyunf413" path="res://sprites/crow/anim/hop/crow_body_hop_01.png" id="16_kkvbt"]
 [ext_resource type="Texture2D" uid="uid://bn5w4ggkg5txb" path="res://sprites/crow/anim/crow_body_land.png" id="16_thbyh"]
@@ -21,25 +21,24 @@
 [ext_resource type="Texture2D" uid="uid://wy4qf7n8pslu" path="res://sprites/crow/crow_head_01_v1.png" id="18_n62i8"]
 [ext_resource type="Texture2D" uid="uid://bsdwhsvtv4se5" path="res://sprites/crow/anim/idle/crow_body_idle_02.png" id="19_7f722"]
 [ext_resource type="Texture2D" uid="uid://r6cstvksxw11" path="res://sprites/crow/anim/idle/crow_body_idle_03.png" id="20_2nn17"]
-[ext_resource type="PackedScene" uid="uid://celhsnnbra50s" path="res://scenes/garbage_performance_test.tscn" id="20_2oytg"]
-[ext_resource type="PackedScene" uid="uid://vj1v31w6w160" path="res://scenes/garbage_2.tscn" id="20_u0om2"]
-[ext_resource type="Script" path="res://scripts/score_counter.gd" id="23_us3bk"]
+[ext_resource type="PackedScene" uid="uid://cpddfvimkgsc4" path="res://scenes/garbage_1.tscn" id="20_c1pbi"]
+[ext_resource type="Script" uid="uid://d1isied7fh5ga" path="res://scripts/score_counter.gd" id="23_us3bk"]
 [ext_resource type="FontFile" uid="uid://c4wv16ttele8b" path="res://misc/Kurland-Regular.otf" id="24_b416v"]
-[ext_resource type="Script" path="res://scripts/garbage_car.gd" id="25_hyf7o"]
+[ext_resource type="Script" uid="uid://dn4012pqf7wt" path="res://scripts/garbage_car.gd" id="25_hyf7o"]
 [ext_resource type="Texture2D" uid="uid://c3e8648tmox65" path="res://sprites/garbage/car/garbage_car_body.png" id="26_28njp"]
 [ext_resource type="Texture2D" uid="uid://bntogwtlc6b8t" path="res://sprites/garbage/car/noise_inner_01.png" id="26_d60k0"]
 [ext_resource type="Texture2D" uid="uid://ciel2m7h6e5th" path="res://sprites/garbage/car/noise_inner_02.png" id="27_a4ydh"]
 [ext_resource type="Texture2D" uid="uid://d2e8u0b5gohaj" path="res://sprites/garbage/car/garbage_car_wheel.png" id="28_2uiih"]
 [ext_resource type="PackedScene" uid="uid://bh3gg5k1djwnh" path="res://scenes/score_label_plain.tscn" id="28_bfpnf"]
-[ext_resource type="Script" path="res://scripts/death_init_area.gd" id="31_oyk41"]
-[ext_resource type="Script" path="res://scripts/park.gd" id="32_0xmqs"]
+[ext_resource type="Script" uid="uid://ci0hivtdiut4c" path="res://scripts/death_init_area.gd" id="31_oyk41"]
+[ext_resource type="Script" uid="uid://coaixnsa8aae4" path="res://scripts/park.gd" id="32_0xmqs"]
 [ext_resource type="Texture2D" uid="uid://djw1spsow78f" path="res://sprites/city/park/park_back.png" id="33_7d7ck"]
 [ext_resource type="Texture2D" uid="uid://cy7arohcbeojh" path="res://sprites/city/park/park_middle.png" id="34_xjyd8"]
 [ext_resource type="Texture2D" uid="uid://j7d7ikd17f7i" path="res://sprites/city/park/park_front_01.png" id="35_s1ec8"]
 [ext_resource type="Texture2D" uid="uid://dkyxlbd5eagoi" path="res://sprites/city/park/park_front_02.png" id="36_8xk0p"]
-[ext_resource type="Script" path="res://scripts/restartButton.gd" id="37_8frj6"]
-[ext_resource type="Script" path="res://scripts/end_area.gd" id="37_d7ky7"]
-[ext_resource type="Script" path="res://scripts/end_game_overlay.gd" id="38_gbjbr"]
+[ext_resource type="Script" uid="uid://doln3wxxfhx6r" path="res://scripts/restartButton.gd" id="37_8frj6"]
+[ext_resource type="Script" uid="uid://dfxde1dmpslrs" path="res://scripts/end_area.gd" id="37_d7ky7"]
+[ext_resource type="Script" uid="uid://w1e6kg1mvcq1" path="res://scripts/end_game_overlay.gd" id="38_gbjbr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhc3x"]
 size = Vector2(58, 12)
@@ -189,8 +188,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_626xm"]
 _data = {
-"RESET": SubResource("Animation_o0m5y"),
-"wheels": SubResource("Animation_y3vxr")
+&"RESET": SubResource("Animation_o0m5y"),
+&"wheels": SubResource("Animation_y3vxr")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6f0jq"]
@@ -390,12 +389,12 @@ stream = SubResource("AudioStreamRandomizer_lp7e8")
 position = Vector2(0, 358)
 script = ExtResource("7_w656r")
 houseSpawner = NodePath("../HouseSpawner")
-garbagePrefabs = Array[PackedScene]([ExtResource("20_2oytg"), ExtResource("20_u0om2")])
-garbageTruck = NodePath("../GarbageCar")
+garbagePrefabs = Array[PackedScene]([ExtResource("20_c1pbi")])
+garbageTruck = NodePath("../GarbageTruck")
 
-[node name="Garbage1" parent="GarbageSpawner" node_paths=PackedStringArray("garbageTruck") instance=ExtResource("20_2oytg")]
-position = Vector2(616, 4)
-garbageTruck = NodePath("../../GarbageCar")
+[node name="Garbage1" parent="GarbageSpawner" node_paths=PackedStringArray("garbageTruck") instance=ExtResource("20_c1pbi")]
+position = Vector2(560, 0)
+garbageTruck = NodePath("../../GarbageTruck")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, 450)
@@ -452,7 +451,7 @@ theme_override_font_sizes/font_size = 30
 text = "0"
 script = ExtResource("23_us3bk")
 
-[node name="GarbageCar" type="AnimatableBody2D" parent="." node_paths=PackedStringArray("crow", "park")]
+[node name="GarbageTruck" type="AnimatableBody2D" parent="." node_paths=PackedStringArray("crow", "park")]
 position = Vector2(-4743, 227)
 collision_layer = 32
 collision_mask = 16
@@ -463,69 +462,69 @@ speed = 80.0
 minDistFromPlayer = 3500.0
 park = NodePath("../Park")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="GarbageCar"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="GarbageTruck"]
 build_mode = 1
 polygon = PackedVector2Array(-564, -187, -256, -191, -244, -243, 381, -265, 585, -158, 549, -150, 377, -243, -234, -223, -244, -179, -570, -168)
 one_way_collision = true
 
-[node name="GarbageCarSprite" type="Sprite2D" parent="GarbageCar"]
+[node name="GarbageCarSprite" type="Sprite2D" parent="GarbageTruck"]
 z_index = 6
 texture = ExtResource("26_28njp")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GarbageCar"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GarbageTruck"]
 libraries = {
-"": SubResource("AnimationLibrary_626xm")
+&"": SubResource("AnimationLibrary_626xm")
 }
 speed_scale = 0.13
 
-[node name="GarbageCarWheel" type="Sprite2D" parent="GarbageCar"]
+[node name="GarbageCarWheel" type="Sprite2D" parent="GarbageTruck"]
 z_index = 6
 position = Vector2(-441, 193)
 texture = ExtResource("28_2uiih")
 
-[node name="GarbageCarWheel2" type="Sprite2D" parent="GarbageCar"]
+[node name="GarbageCarWheel2" type="Sprite2D" parent="GarbageTruck"]
 z_index = 6
 position = Vector2(215, 191)
 texture = ExtResource("28_2uiih")
 
-[node name="SoundCircle" type="Node2D" parent="GarbageCar"]
+[node name="SoundCircle" type="Node2D" parent="GarbageTruck"]
 position = Vector2(0, -764.6)
 scale = Vector2(1.2, 1.2)
 
-[node name="AnimatedInnerCircle" type="AnimatedSprite2D" parent="GarbageCar/SoundCircle"]
+[node name="AnimatedInnerCircle" type="AnimatedSprite2D" parent="GarbageTruck/SoundCircle"]
 z_index = 6
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_6f0jq")
 
-[node name="MovingWall" type="StaticBody2D" parent="GarbageCar"]
+[node name="MovingWall" type="StaticBody2D" parent="GarbageTruck"]
 position = Vector2(-2226, 0)
 collision_layer = 16
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageCar/MovingWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageTruck/MovingWall"]
 shape = SubResource("WorldBoundaryShape2D_n4vnm")
 
-[node name="Gradient" type="Sprite2D" parent="GarbageCar"]
+[node name="Gradient" type="Sprite2D" parent="GarbageTruck"]
 z_index = 10
 position = Vector2(-473, -2000)
 texture = SubResource("GradientTexture2D_aot5c")
 
-[node name="SolidColor" type="Sprite2D" parent="GarbageCar"]
+[node name="SolidColor" type="Sprite2D" parent="GarbageTruck"]
 z_index = 10
 position = Vector2(-3459, -2000)
 texture = SubResource("GradientTexture2D_7lfw0")
 
-[node name="DeathInitArea" type="Area2D" parent="GarbageCar"]
+[node name="DeathInitArea" type="Area2D" parent="GarbageTruck"]
 position = Vector2(-1475, 0)
 collision_layer = 16
 collision_mask = 16
 monitorable = false
 script = ExtResource("31_oyk41")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageCar/DeathInitArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageTruck/DeathInitArea"]
 shape = SubResource("WorldBoundaryShape2D_ttxjc")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GarbageCar"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GarbageTruck"]
 stream = SubResource("AudioStreamMP3_6ft8p")
 autoplay = true
 
@@ -670,8 +669,8 @@ stream = SubResource("AudioStreamMP3_ujtjd")
 volume_db = -8.0
 autoplay = true
 
-[connection signal="body_entered" from="GarbageCar/DeathInitArea" to="GarbageCar/DeathInitArea" method="_on_body_entered"]
-[connection signal="body_exited" from="GarbageCar/DeathInitArea" to="GarbageCar/DeathInitArea" method="_on_body_exited"]
+[connection signal="body_entered" from="GarbageTruck/DeathInitArea" to="GarbageTruck/DeathInitArea" method="_on_body_entered"]
+[connection signal="body_exited" from="GarbageTruck/DeathInitArea" to="GarbageTruck/DeathInitArea" method="_on_body_exited"]
 [connection signal="body_entered" from="Park/EndTrigger" to="Park/EndTrigger" method="_on_body_entered"]
 [connection signal="end_game" from="Park/EndTrigger" to="EndGameOverlay" method="_on_end_trigger_end_game"]
 [connection signal="pressed" from="EndGameOverlay/VBoxContainer/Button" to="EndGameOverlay/VBoxContainer/Button" method="_on_pressed"]

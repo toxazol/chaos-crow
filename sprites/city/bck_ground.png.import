@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bck_ground.png-099fcc4b7911579e5796c92ff7f006
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

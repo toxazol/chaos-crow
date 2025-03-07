@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/crow_body_hop_02.png-0ffb3e802001365d98c959e9
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

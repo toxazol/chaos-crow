@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cxntmvx214l1n"]
 
-[ext_resource type="Script" path="res://scripts/score_label.gd" id="1_crlkx"]
+[ext_resource type="Script" uid="uid://xf6jbds84t4a" path="res://scripts/score_label.gd" id="1_crlkx"]
 
 [node name="ScoreLabel" type="Label"]
 offset_right = 34.0

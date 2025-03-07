@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="ChaosCrow"
+config/name="ChaosCrow4.4"
 run/main_scene="res://scenes/start_scene.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -21,8 +21,8 @@ ScoreManager="*res://scripts/score_manager.gd"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=632
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 
