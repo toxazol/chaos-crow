@@ -120,7 +120,7 @@ func _process(delta: float):
 	if isTakeOff:
 		animated_sprite_2d.play("takeoff")
 	elif isLanding:
-		print_rich("[color=cyan]animating landing[/color]")
+		#print_rich("[color=cyan]animating landing[/color]")
 		animated_sprite_2d.play("landing")
 	elif isFlying:
 		animated_sprite_2d.play("fly")

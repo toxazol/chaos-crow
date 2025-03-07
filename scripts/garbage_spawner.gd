@@ -40,7 +40,7 @@ func _ready() -> void:
 	#return null
 
 func spawnAroundHouse(x: float):
-	print("spawn 2 garbage piles")
+	#print("spawn 2 garbage piles")
 	spawn(x + distanceFromHouse)
 	await get_tree().create_timer(1).timeout # make spawning async
 	spawn(x - distanceFromHouse)

@@ -1224,7 +1224,7 @@ var _max_deletions = 6
 var _last_delete_time := 0
 
 @onready var _last_texture = texture
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	# Needed in case texture changes
@@ -1234,7 +1234,7 @@ func _physics_process(delta: float) -> void:
 		_last_texture = texture
 		return
 	# Wait a little before breaking bones
-	if break_distance_ratio <= 0 || !_skeleton_node:
+	if break_distance_ratio <= 0 || !_skeleton_node || !isRippable:
 		return
 	# Break at max max_deletions joints
 	var deleted_count = 0
@@ -1249,3 +1249,9 @@ func _physics_process(delta: float) -> void:
 				deleted_count = deleted_count + 1
 				remove_joint(rigid_body, joint)
 				_last_delete_time = Time.get_ticks_msec()
+
+
+var isRippable = false
+func toggle_ripping(isOn: bool):
+	isRippable = isOn
+	

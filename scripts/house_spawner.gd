@@ -24,7 +24,7 @@ func _ready() -> void:
 		var instance = spawn(0.0)
 		leftMost = instance
 		rightMost = instance
-		print("spawned house at spawner coords")
+		#print("spawned house at spawner coords")
 
 
 func _physics_process(delta: float) -> void:
@@ -45,12 +45,12 @@ func _physics_process(delta: float) -> void:
 		var x = rBorder + randf_range(minGap, maxGap)
 		rightMost = spawn(x)
 		house_spawned_right.emit(x)
-		print("spawned house to the right")
+		#print("spawned house to the right")
 
 	if is_instance_valid(leftMost) and lBorder < leftMost.global_position.x:
 		var x = lBorder - randf_range(minGap, maxGap)
 		leftMost = spawn(x)
-		print("spawned house to the left")
+		#print("spawned house to the left")
 
 
 func spawn(x: float) -> Node2D:
