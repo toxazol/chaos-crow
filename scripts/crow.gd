@@ -45,7 +45,8 @@ func _ready():
 	initialNeckBasePostion = neck.points[1]
 
 
-func _physics_process(delta: float) -> void:
+func move_it_move_it(delta: float) -> void:
+#func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("peck"):
 		peck()
 	# Add the gravity.
@@ -86,7 +87,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float):
-	
+	move_it_move_it(delta)
 	#match curState:
 		#CrowState.Idling:
 			#...

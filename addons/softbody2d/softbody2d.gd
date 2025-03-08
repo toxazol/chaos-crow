@@ -979,16 +979,16 @@ func _update_bone_lookat(skeleton_node: Skeleton2D, skeleton_modification :Skele
 var _bones_array: Array[Bone2D]
 var _skeleton_node: Skeleton2D
 var _soft_body_rigidbodies_array: Array[SoftBodyChild]
-var _soft_body_rigidbodies_dict: Dictionary
-var _hinges_bodies:= Dictionary()
-var _hinges_distances_squared := Dictionary()
+var _soft_body_rigidbodies_dict: Dictionary[Node, SoftBodyChild]
+var _hinges_bodies: Dictionary[StringName, Node] = {}
+var _hinges_distances_squared: Dictionary[StringName, float] = {}
 
 # The center of the softbody. Updates dynamically if [member SoftBody2D.look_at_center] is true. If not, call [method SoftBody2D.get_bones_center_position] to compute it.
 @onready var bone_center_position = get_bones_center_position()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() or break_distance_ratio <= 0: # don't do anything if not breakable
 		return
 	_update_vars()
 
@@ -1007,8 +1007,8 @@ func _update_vars():
 		for hinge in rigid_body.joints:
 			var joint := hinge as Joint2D
 			_hinges_bodies[rigid_body.rigidbody.name] = get_node(NodePath(rigid_body.rigidbody.name)) as PhysicsBody2D
-			_hinges_bodies[joint.node_b] = get_node(joint.node_b.get_concatenated_names().substr(4)) as PhysicsBody2D
-			_hinges_distances_squared[joint.name] = _hinges_bodies[rigid_body.rigidbody.name].global_position.distance_squared_to(_hinges_bodies[joint.node_b].global_position)
+			_hinges_bodies[joint.node_b.get_concatenated_names()] = get_node(joint.node_b.get_concatenated_names().substr(4)) as PhysicsBody2D
+			_hinges_distances_squared[joint.name] = _hinges_bodies[rigid_body.rigidbody.name].global_position.distance_squared_to(_hinges_bodies[joint.node_b.get_concatenated_names()].global_position)
 
 
 #region Public API
@@ -1026,7 +1026,7 @@ func remove_joint(rigid_body_child: SoftBodyChild, joint: Joint2D):
 	if Engine.is_editor_hint():
 		_update_vars()
 	var bone_a_name : String = _hinges_bodies[rigid_body_child.rigidbody.name].get_meta("bone_name")
-	var bone_b_name : String = _hinges_bodies[joint.node_b].get_meta("bone_name")
+	var bone_b_name : String = _hinges_bodies[joint.node_b.get_concatenated_names()].get_meta("bone_name")
 	var bone_a_idx = -1
 	var bone_b_idx = -1
 	var bone_a: Bone2D
@@ -1245,7 +1245,7 @@ func _physics_process(delta: float) -> void:
 				continue
 			if joint.is_queued_for_deletion() || deleted_count >= _max_deletions:
 				continue
-			if _hinges_distances_squared[joint.name] * break_distance_ratio * break_distance_ratio * rigid_body.joints.size() < _hinges_bodies[rigid_body.rigidbody.name].global_position.distance_squared_to(_hinges_bodies[joint.node_b].global_position):
+			if _hinges_distances_squared[joint.name] * break_distance_ratio * break_distance_ratio * rigid_body.joints.size() < _hinges_bodies[rigid_body.rigidbody.name].global_position.distance_squared_to(_hinges_bodies[joint.node_b.get_concatenated_names()].global_position):
 				deleted_count = deleted_count + 1
 				remove_joint(rigid_body, joint)
 				_last_delete_time = Time.get_ticks_msec()
