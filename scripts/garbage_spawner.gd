@@ -41,6 +41,7 @@ func _ready() -> void:
 
 func spawnAroundHouse(x: float):
 	#print("spawn 2 garbage piles")
+	await get_tree().create_timer(1).timeout # don't spawn at the same time as house spawns
 	spawn(x + distanceFromHouse)
 	await get_tree().create_timer(1).timeout # make spawning async
 	spawn(x - distanceFromHouse)

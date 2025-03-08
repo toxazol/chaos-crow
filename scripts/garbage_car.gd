@@ -26,6 +26,6 @@ func _process(delta: float) -> void:
 		var dist = abs(crow.position.x - position.x)
 		if dist > minDistFromPlayer:
 			position.x = crow.position.x - minDistFromPlayer
-			print("teleported garbage car closer to player")
+			#print("teleported garbage car closer to player")
 		teleportCheckTimer = 0.0
 	teleportCheckTimer += delta

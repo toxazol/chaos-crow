@@ -10,22 +10,27 @@ class_name HouseSpawner
 
 @export var park: Node2D
 
-## add both if any spawned manualy 
-@export var leftMost: Node2D
+## add if any spawned manualy 
 @export var rightMost: Node2D
 
 var spawnTimer = 0.0
 var isStopSpawn = false
 
+var pool: Array[Node2D] = []
+@export var poolSize: int = 3
+
 signal house_spawned_right
 
 func _ready() -> void:
-	if !rightMost and !leftMost:
+	populatePool()
+	if !rightMost:
 		var instance = spawn(0.0)
-		leftMost = instance
 		rightMost = instance
-		#print("spawned house at spawner coords")
+		print("spawned house at spawner coords")
 
+func populatePool():
+	for i in range(poolSize):
+		pool.append(prespawn(i))
 
 func _physics_process(delta: float) -> void:
 	if isStopSpawn or spawnTimer < spawnTimeout:
@@ -39,26 +44,53 @@ func _physics_process(delta: float) -> void:
 		isStopSpawn = true 
 	
 	var rBorder = camera.get_viewport_right_border()
-	var lBorder = camera.get_viewport_left_border()
 
 	if rBorder > rightMost.global_position.x:
 		var x = rBorder + randf_range(minGap, maxGap)
 		rightMost = spawn(x)
 		house_spawned_right.emit(x)
-		#print("spawned house to the right")
+		print("spawned house to the right")
 
-	if is_instance_valid(leftMost) and lBorder < leftMost.global_position.x:
-		var x = lBorder - randf_range(minGap, maxGap)
-		leftMost = spawn(x)
-		#print("spawned house to the left")
 
+
+func prespawn(i: int) -> Node2D:
+	var instance: Node2D
+	instance = housePrefabs[i % housePrefabs.size()].instantiate()
+	add_child(instance)
+	instance.camera = camera
+	instance.hide()
+	instance.process_mode = Node.PROCESS_MODE_DISABLED
+	return instance
+	
+#func spawn(x: float) -> Node2D:
+	#var instance: Node2D
+	#instance = housePrefabs.pick_random().instantiate()
+	#instance.position.x = x - global_position.x
+	#if randf() < 0.5: # 50% chance that house will be flipped
+		#instance.scale.x *= -1
+	#add_child(instance)
+	#instance.camera = camera
+	#return instance
 
 func spawn(x: float) -> Node2D:
+	if pool.is_empty():
+		print_rich("[color=red]house spawner. pool is empty[/color]")
+		pool.append(prespawn(randi() % housePrefabs.size()))
+		return spawn(x)
+	var hiddenHouseIndeces: Array[int] = []
+	for i in range(pool.size()):
+		var obj: Node2D = pool[i]
+		if not obj.visible:
+			hiddenHouseIndeces.append(i)
+	if hiddenHouseIndeces.is_empty():
+		print_rich("[color=orange]house spawner. no available houses in pool[/color]")
+		pool.append(prespawn(randi() % housePrefabs.size()))
+		return spawn(x)
 	var instance: Node2D
-	instance = housePrefabs.pick_random().instantiate()
+	instance = pool[hiddenHouseIndeces.pick_random()]
 	instance.position.x = x - global_position.x
 	if randf() < 0.5: # 50% chance that house will be flipped
 		instance.scale.x *= -1
-	add_child(instance)
-	instance.camera = camera
+	instance.show()
+	instance.process_mode = Node.PROCESS_MODE_INHERIT
 	return instance

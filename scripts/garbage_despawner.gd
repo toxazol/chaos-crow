@@ -37,7 +37,7 @@ func checkDespawnables():
 
 func settleScoreAndDespawn(node: Node2D):
 	var points = extractPoints(node)
-	print("extracted ", points, " points from ", node.name)
+	#print("extracted ", points, " points from ", node.name)
 	if points:
 		ScoreManager.settle_score(points)
 	node.queue_free()

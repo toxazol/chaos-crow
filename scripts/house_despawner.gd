@@ -21,5 +21,6 @@ func _process(delta: float) -> void:
 func despawnIfFar():
 	var despawnX = camera.get_viewport_left_border() - despawnLeftDistance
 	if global_position.x < despawnX:
-		#print("despawned house")
-		queue_free()
+		print("returned house back to pool")
+		self.hide()
+		self.process_mode = Node.PROCESS_MODE_DISABLED

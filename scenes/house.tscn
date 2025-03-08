@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bhu8wxrmhtuym"]
 
 [ext_resource type="Script" uid="uid://dkv40sisvlwsa" path="res://scripts/house_despawner.gd" id="1_hrcmk"]
-[ext_resource type="Texture2D" uid="uid://b505vqsq881vn" path="res://sprites/city/bck_house_01.png" id="1_ie74i"]
+[ext_resource type="Texture2D" uid="uid://cs864qena2e2a" path="res://sprites/city/bck_house_01_small.png" id="2_se78b"]
 [ext_resource type="Script" uid="uid://cn4fy1ouoeti6" path="res://scripts/trash_counter.gd" id="3_urcvf"]
 [ext_resource type="PackedScene" uid="uid://cxntmvx214l1n" path="res://scenes/score_label_cool.tscn" id="4_hil6g"]
 
@@ -26,7 +26,8 @@ script = ExtResource("1_hrcmk")
 despawnLeftDistance = 6000.0
 
 [node name="BckHouse01" type="Sprite2D" parent="."]
-texture = ExtResource("1_ie74i")
+scale = Vector2(4, 4)
+texture = ExtResource("2_se78b")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-33, -781.6, -180.5, -709.8, -180.5, -709.1, -785.7, -446.5, -784.5, -402, -744, -386.5, -741.6, -334.4, -748.5, -270.8, -748.5, -16.3, -730.6, -3.70001, -741.6, 382.9, -741.4, 750.5, -836.5, 750.5, -844.5, 800.5, 792.5, 807.5, 815.9, 798.5, 828.4, 505.9, 824.5, 468, 789, 473.5, 781.5, 747.6, 656.5, 749.5, 659.4, 146.6, 807.5, 148.5, 814.5, -153.1, 770.7, -146.5, 769.6, 86.8, 656.5, 91.2, 656.5, -34.3, 657.5, -402, 707, -404.5, 733.5, -455.9, 412.5, -601.9, 412.5, -647.5, 335.6, -640.5)

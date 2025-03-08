@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ca82j04rfhgyk"]
 
 [ext_resource type="Script" uid="uid://dkv40sisvlwsa" path="res://scripts/house_despawner.gd" id="1_erauk"]
-[ext_resource type="Texture2D" uid="uid://cjx1y6yhbvd7u" path="res://sprites/city/bck_house_02.png" id="2_rteoj"]
+[ext_resource type="Texture2D" uid="uid://c5qhif76a0dms" path="res://sprites/city/bck_house_02_small.png" id="2_2cpcr"]
 [ext_resource type="Script" uid="uid://cn4fy1ouoeti6" path="res://scripts/trash_counter.gd" id="3_8hcvt"]
 [ext_resource type="PackedScene" uid="uid://cxntmvx214l1n" path="res://scenes/score_label_cool.tscn" id="4_8oiur"]
 
@@ -17,7 +17,8 @@ script = ExtResource("1_erauk")
 despawnLeftDistance = 6000.0
 
 [node name="BckHouse01" type="Sprite2D" parent="."]
-texture = ExtResource("2_rteoj")
+scale = Vector2(4, 4)
+texture = ExtResource("2_2cpcr")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-789.3, -775, -835.5, 788.8, 841.7, 804, 809.5, -777.5)
