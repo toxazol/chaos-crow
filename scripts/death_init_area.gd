@@ -1,9 +1,9 @@
 extends Area2D
 
-@export var deathTimeout = 3.0
+@export var deathTimeout := 3.0
 
-var isDying = false
-var deathTimer = 0.0
+var isDying := false
+var deathTimer := 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,7 +30,7 @@ func _on_body_exited(body: Node2D) -> void:
 		isDying = false
 		deathTimer = 0.0
 	
-func showGameOver():
+func showGameOver() -> void:
 	body_exited.disconnect(_on_body_exited)
 	if get_tree():
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")

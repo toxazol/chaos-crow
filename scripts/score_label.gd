@@ -2,11 +2,11 @@ extends Label
 
 class_name ScoreLabel
 
-var timer = 0.0
-var timeOut = 0.0
-var score = 0
+var timer := 0.0
+var timeOut := 0.0
+var score := 0
 
-func setScore(points: int, timeout: float):
+func setScore(points: int, timeout: float) -> void:
 	if points != score:
 		ScoreManager.add_score(points)
 	score = points
@@ -16,7 +16,7 @@ func setScore(points: int, timeout: float):
 	visible = true
 	
 	
-func resetScore():
+func resetScore() -> void:
 	ScoreManager.add_score(-score)
 	#print("reset score for ", get_parent().get_parent().name)
 	score = 0

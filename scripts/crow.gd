@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 
-@export var friction = 20.0
-@export var hopVelocity = Vector2(500.0, 200.0)
-@export var flyVelocity = Vector2(700.0, 500.0)
-@export var takeOffTime = 0.1
-@export var maxNeckLen = 55
-@export var maxNeckHoldTimeout = 0.5
-@export var landingAirResist = 100.0
+@export var friction := 20.0
+@export var hopVelocity := Vector2(500.0, 200.0)
+@export var flyVelocity := Vector2(700.0, 500.0)
+@export var takeOffTime := 0.1
+@export var maxNeckLen := 55.0
+@export var maxNeckHoldTimeout := 0.5
+@export var landingAirResist := 100.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var neck: Line2D = $Neck
@@ -26,21 +26,21 @@ enum CrowState {
 	Landing
 }
 var curState: CrowState = CrowState.Idling
-var stateChangeTimer = 0.0
+var stateChangeTimer := 0.0
 
-var isFlying = false
-var wasFlying = false
-var isTakeOff = false
-var isLanding = false
+var isFlying := false
+var wasFlying := false
+var isTakeOff := false
+var isLanding := false
 var thingInBeak: Node2D = null
-var initialHeadTransform
-var initialNeckBasePostion
-var direction = 0.0
-var prevDirection = 1.0
-var takeOffTimer = 0.0
-var holdTimer = 0.0
+var initialHeadTransform: Transform2D
+var initialNeckBasePostion: Vector2
+var direction := 0.0
+var prevDirection := 1.0
+var takeOffTimer := 0.0
+var holdTimer := 0.0
 
-func _ready():
+func _ready() -> void:
 	initialHeadTransform = head_sprite.transform
 	initialNeckBasePostion = neck.points[1]
 
@@ -86,7 +86,7 @@ func move_it_move_it(delta: float) -> void:
 	move_and_slide()
 
 
-func _process(delta: float):
+func _process(delta: float) -> void:
 	move_it_move_it(delta)
 	#match curState:
 		#CrowState.Idling:
@@ -147,7 +147,7 @@ func isNeckTooLong() -> bool:
 	return thingInBeak and neck.points[1].distance_squared_to(neck.points[0]) > maxNeckLen*maxNeckLen
 
 
-func peck():
+func peck() -> void:
 	if thingInBeak:
 		thingInBeak.call("drop")
 		thingInBeak = null
@@ -155,14 +155,14 @@ func peck():
 		neck.points[1] = initialNeckBasePostion
 		return
 
-	var bodies = beak_zone.get_overlapping_bodies()
+	var bodies := beak_zone.get_overlapping_bodies()
 	var nearest: Node2D = null
 	var nearestDistSq: float
 	for body in bodies:
 		if body.has_method("stick"):
 			if has_overlapping_trash_bags(body):
 				continue
-			var distSq = body.global_position.distance_squared_to(beak_zone.global_position)
+			var distSq := body.global_position.distance_squared_to(beak_zone.global_position)
 			if !nearest or distSq < nearestDistSq:
 				nearest = body
 				nearestDistSq = distSq
@@ -171,14 +171,15 @@ func peck():
 		thingInBeak = nearest
 
 
-func has_overlapping_trash_bags(garbage: Node2D):
+func has_overlapping_trash_bags(garbage: Node2D) -> bool:
 	if !garbage.get_parent().is_in_group("garbage"):
 		return false
-	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsShapeQueryParameters2D.new()
-	var collider = garbage.get_children().filter(func(c): return c is CollisionShape2D).front()
+	var space_state := get_world_2d().direct_space_state
+	var query := PhysicsShapeQueryParameters2D.new()
+	var collider := garbage.get_children().filter(
+		func(c: Node2D)->bool: return c is CollisionShape2D).front() as CollisionShape2D
 	query.set_shape(collider.shape)				# Use garbage shape
 	query.transform = garbage.global_transform	# Check at garbage's position
 	query.collision_mask = 1 << 2				# Only detect layer 3 (trash bag internals)
-	var results = space_state.intersect_shape(query)
+	var results := space_state.intersect_shape(query)
 	return results.size() > 0

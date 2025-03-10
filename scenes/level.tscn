@@ -332,7 +332,6 @@ floor_block_on_wall = false
 platform_on_leave = 2
 script = ExtResource("2_p3j1n")
 takeOffTime = 0.2
-maxNeckLen = 80
 maxNeckHoldTimeout = 0.1
 
 [node name="IdleBodyShapedCollider" type="CollisionPolygon2D" parent="Crow"]

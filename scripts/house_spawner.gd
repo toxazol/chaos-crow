@@ -3,18 +3,18 @@ extends Node2D
 class_name HouseSpawner
 
 @export var housePrefabs: Array[PackedScene]
-@export var minGap = 200
-@export var maxGap = 1000
+@export var minGap := 200
+@export var maxGap := 1000
 @export var camera: FollowCamera
-@export var spawnTimeout = 1.0
+@export var spawnTimeout := 1.0
 
 @export var park: Node2D
 
 ## add if any spawned manualy 
 @export var rightMost: Node2D
 
-var spawnTimer = 0.0
-var isStopSpawn = false
+var spawnTimer := 0.0
+var isStopSpawn := false
 
 var pool: Array[Node2D] = []
 @export var poolSize: int = 3
@@ -24,11 +24,11 @@ signal house_spawned_right
 func _ready() -> void:
 	populatePool()
 	if !rightMost:
-		var instance = spawn(0.0)
+		var instance := spawn(0.0)
 		rightMost = instance
 		print("spawned house at spawner coords")
 
-func populatePool():
+func populatePool() -> void:
 	for i in range(poolSize):
 		pool.append(prespawn(i))
 
@@ -43,10 +43,10 @@ func _physics_process(delta: float) -> void:
 	if rightMost.global_position.x + maxGap + 1000 > park.global_position.x:
 		isStopSpawn = true 
 	
-	var rBorder = camera.get_viewport_right_border()
+	var rBorder := camera.get_viewport_right_border()
 
 	if rBorder > rightMost.global_position.x:
-		var x = rBorder + randf_range(minGap, maxGap)
+		var x := rBorder + randf_range(minGap, maxGap)
 		rightMost = spawn(x)
 		house_spawned_right.emit(x)
 		print("spawned house to the right")

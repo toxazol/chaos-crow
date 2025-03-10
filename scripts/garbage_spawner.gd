@@ -2,7 +2,7 @@ extends Node2D
 
 @export var houseSpawner: HouseSpawner
 @export var garbagePrefabs: Array[PackedScene]
-@export var distanceFromHouse = 1000.0
+@export var distanceFromHouse := 1000.0
 @export var garbageTruck: Node2D
 
 #var garbagePrefab = preload("res://scenes/garbage_1.tscn")
@@ -39,7 +39,7 @@ func _ready() -> void:
 	#push_error("no more invisible garbage in pool")
 	#return null
 
-func spawnAroundHouse(x: float):
+func spawnAroundHouse(x: float) -> void:
 	#print("spawn 2 garbage piles")
 	await get_tree().create_timer(1).timeout # don't spawn at the same time as house spawns
 	spawn(x + distanceFromHouse)
@@ -52,7 +52,7 @@ func spawnAroundHouse(x: float):
 		##instance.camera = camera
 		#instance.position.x = x
 
-func spawn(x: float):
+func spawn(x: float) -> void:
 	var instance: Node2D
 	instance = garbagePrefabs.pick_random().instantiate()
 	#instance = garbagePrefab.instantiate()
@@ -65,7 +65,7 @@ func spawn(x: float):
 	instance.set_physics_process(true)
 	instance.set_process(true)
 	
-func switchGarbagePhysics(node: Node2D, on: bool):
+func switchGarbagePhysics(node: Node2D, on: bool) -> void:
 	node.set_physics_process(on)
 	node.set_process(on)
 	for child in node.get_children():
