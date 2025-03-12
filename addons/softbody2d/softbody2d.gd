@@ -1220,8 +1220,9 @@ func _update_soft_body_rigidbodies(skeleton_node:Skeleton2D = null):
 		_soft_body_rigidbodies_dict[softbodyrb.rigidbody] = softbodyrb
 	_soft_body_rigidbodies_array = result
 
-var _max_deletions = 6
+var _max_deletions = 3
 var _last_delete_time := 0
+var _delete_every_x_frames := 2
 
 @onready var _last_texture = texture
 	
@@ -1233,9 +1234,11 @@ func _physics_process(delta: float) -> void:
 			create_softbody2d()
 		_last_texture = texture
 		return
+	_delete_every_x_frames -= 1
 	# Wait a little before breaking bones
-	if break_distance_ratio <= 0 || !_skeleton_node || !isRippable:
+	if break_distance_ratio <= 0 || !_skeleton_node || _delete_every_x_frames > 0 || !isRippable:
 		return
+	_delete_every_x_frames = 2
 	# Break at max max_deletions joints
 	var deleted_count = 0
 	for rigid_body in get_rigid_bodies():

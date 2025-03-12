@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dip2ajxyxif0u"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dxen2"]
+size = Vector2(100, 100)
+
+[node name="MobileControls" type="CanvasLayer"]
+
+[node name="TouchButtonLeft" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 1, 1, 0.329412)
+position = Vector2(91, 895)
+texture_normal = SubResource("PlaceholderTexture2D_dxen2")
+action = "left"
+
+[node name="TouchButtonRight" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 1, 1, 0.329412)
+position = Vector2(340, 893)
+texture_normal = SubResource("PlaceholderTexture2D_dxen2")
+action = "right"
+
+[node name="TouchButtonFly" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 1, 1, 0.329412)
+position = Vector2(1375, 899)
+texture_normal = SubResource("PlaceholderTexture2D_dxen2")
+action = "fly"
+
+[node name="TouchButtonPeck" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 1, 1, 0.329412)
+position = Vector2(1661, 893)
+texture_normal = SubResource("PlaceholderTexture2D_dxen2")
+action = "peck"

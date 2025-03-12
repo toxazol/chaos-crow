@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6y7rc02xnly2"]
+
+[ext_resource type="Script" uid="uid://yra0yhernl7s" path="res://scripts/garbage_spawner.gd" id="1_uxphp"]
+[ext_resource type="PackedScene" uid="uid://cpddfvimkgsc4" path="res://scenes/garbage_1.tscn" id="2_x3rog"]
+
+[node name="GarbageSpawner" type="Node2D" node_paths=PackedStringArray("houseSpawner", "garbageTruck")]
+script = ExtResource("1_uxphp")
+houseSpawner = NodePath("")
+garbagePrefabs = Array[PackedScene]([ExtResource("2_x3rog")])
+garbageTruck = NodePath("")

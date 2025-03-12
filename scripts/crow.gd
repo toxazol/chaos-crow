@@ -177,7 +177,7 @@ func has_overlapping_trash_bags(garbage: Node2D) -> bool:
 	var space_state := get_world_2d().direct_space_state
 	var query := PhysicsShapeQueryParameters2D.new()
 	var collider := garbage.get_children().filter(
-		func(c: Node2D)->bool: return c is CollisionShape2D).front() as CollisionShape2D
+		func(c: Node)->bool: return c is CollisionShape2D).front() as CollisionShape2D
 	query.set_shape(collider.shape)				# Use garbage shape
 	query.transform = garbage.global_transform	# Check at garbage's position
 	query.collision_mask = 1 << 2				# Only detect layer 3 (trash bag internals)

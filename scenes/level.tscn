@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://cstxl4q48gjfs"]
+[gd_scene load_steps=67 format=4 uid="uid://cstxl4q48gjfs"]
 
 [ext_resource type="Texture2D" uid="uid://dr1chtpa4diiw" path="res://sprites/city/bck_sky.png" id="1_21i41"]
 [ext_resource type="Script" uid="uid://dd0gyxroipgkp" path="res://scripts/followCamera.gd" id="1_o20ha"]
@@ -22,8 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://bsdwhsvtv4se5" path="res://sprites/crow/anim/idle/crow_body_idle_02.png" id="19_7f722"]
 [ext_resource type="Texture2D" uid="uid://r6cstvksxw11" path="res://sprites/crow/anim/idle/crow_body_idle_03.png" id="20_2nn17"]
 [ext_resource type="PackedScene" uid="uid://cpddfvimkgsc4" path="res://scenes/garbage_1.tscn" id="20_c1pbi"]
+[ext_resource type="PackedScene" uid="uid://vj1v31w6w160" path="res://scenes/garbage_2.tscn" id="21_535f6"]
 [ext_resource type="Script" uid="uid://d1isied7fh5ga" path="res://scripts/score_counter.gd" id="23_us3bk"]
 [ext_resource type="FontFile" uid="uid://c4wv16ttele8b" path="res://misc/Kurland-Regular.otf" id="24_b416v"]
+[ext_resource type="PackedScene" uid="uid://dip2ajxyxif0u" path="res://scenes/MobileControls.tscn" id="25_50fbu"]
 [ext_resource type="Script" uid="uid://dn4012pqf7wt" path="res://scripts/garbage_car.gd" id="25_hyf7o"]
 [ext_resource type="Texture2D" uid="uid://c3e8648tmox65" path="res://sprites/garbage/car/garbage_car_body.png" id="26_28njp"]
 [ext_resource type="Texture2D" uid="uid://bntogwtlc6b8t" path="res://sprites/garbage/car/noise_inner_01.png" id="26_d60k0"]
@@ -351,7 +353,7 @@ collision_mask = 33
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Crow"]
 position = Vector2(3, 1)
 sprite_frames = SubResource("SpriteFrames_kbfhr")
-animation = &"landing"
+animation = &"hop"
 
 [node name="Neck" type="Line2D" parent="Crow"]
 position = Vector2(26, -12)
@@ -391,7 +393,7 @@ stream = SubResource("AudioStreamRandomizer_lp7e8")
 position = Vector2(0, 358)
 script = ExtResource("7_w656r")
 houseSpawner = NodePath("../HouseSpawner")
-garbagePrefabs = Array[PackedScene]([ExtResource("20_c1pbi")])
+garbagePrefabs = Array[PackedScene]([ExtResource("20_c1pbi"), ExtResource("21_535f6")])
 garbageTruck = NodePath("../GarbageTruck")
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -422,7 +424,13 @@ script = ExtResource("1_o20ha")
 followTarget = NodePath("../Crow")
 rightWall = NodePath("../Park/RightWall")
 ceiling = NodePath("../Ceiling")
+maxZoom = Vector2(1, 1)
 minZoom = Vector2(0.5, 0.5)
+zoomSpeed = 1.0
+
+[node name="MobileControls" parent="." instance=ExtResource("25_50fbu")]
+process_mode = 4
+visible = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -457,7 +465,7 @@ collision_mask = 16
 sync_to_physics = false
 script = ExtResource("25_hyf7o")
 crow = NodePath("../Crow")
-speed = 150.0
+speed = 140.0
 minDistFromPlayer = 4000.0
 park = NodePath("../Park")
 
