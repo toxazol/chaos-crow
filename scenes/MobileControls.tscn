@@ -5,26 +5,72 @@ size = Vector2(100, 100)
 
 [node name="MobileControls" type="CanvasLayer"]
 
-[node name="TouchButtonLeft" type="TouchScreenButton" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="TouchButtonLeft" type="TouchScreenButton" parent="Control"]
 self_modulate = Color(1, 1, 1, 0.329412)
-position = Vector2(91, 895)
+position = Vector2(85, -201)
+scale = Vector2(2, 2)
 texture_normal = SubResource("PlaceholderTexture2D_dxen2")
 action = "left"
 
-[node name="TouchButtonRight" type="TouchScreenButton" parent="."]
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="TouchButtonRight" type="TouchScreenButton" parent="Control2"]
 self_modulate = Color(1, 1, 1, 0.329412)
-position = Vector2(340, 893)
+position = Vector2(340, -202)
+scale = Vector2(2, 2)
 texture_normal = SubResource("PlaceholderTexture2D_dxen2")
 action = "right"
 
-[node name="TouchButtonFly" type="TouchScreenButton" parent="."]
+[node name="Control3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TouchButtonFly" type="TouchScreenButton" parent="Control3"]
 self_modulate = Color(1, 1, 1, 0.329412)
-position = Vector2(1375, 899)
+position = Vector2(-505, -199)
+scale = Vector2(2, 2)
 texture_normal = SubResource("PlaceholderTexture2D_dxen2")
 action = "fly"
 
-[node name="TouchButtonPeck" type="TouchScreenButton" parent="."]
+[node name="Control4" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TouchButtonPeck" type="TouchScreenButton" parent="Control4"]
 self_modulate = Color(1, 1, 1, 0.329412)
-position = Vector2(1661, 893)
+position = Vector2(-219, -200)
+scale = Vector2(2, 2)
 texture_normal = SubResource("PlaceholderTexture2D_dxen2")
 action = "peck"

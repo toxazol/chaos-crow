@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://bh3gg5k1djwnh" path="res://scenes/score_label_plain.tscn" id="28_bfpnf"]
 [ext_resource type="Script" uid="uid://ci0hivtdiut4c" path="res://scripts/death_init_area.gd" id="31_oyk41"]
 [ext_resource type="Script" uid="uid://coaixnsa8aae4" path="res://scripts/park.gd" id="32_0xmqs"]
+[ext_resource type="Shader" uid="uid://djdno4h65allr" path="res://scripts/gradient.gdshader" id="33_0fmhk"]
 [ext_resource type="Texture2D" uid="uid://djw1spsow78f" path="res://sprites/city/park/park_back.png" id="33_7d7ck"]
 [ext_resource type="Texture2D" uid="uid://cy7arohcbeojh" path="res://sprites/city/park/park_middle.png" id="34_xjyd8"]
 [ext_resource type="Texture2D" uid="uid://j7d7ikd17f7i" path="res://sprites/city/park/park_front_01.png" id="35_s1ec8"]
@@ -211,23 +212,17 @@ animations = [{
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n4vnm"]
 normal = Vector2(1, 0)
 
-[sub_resource type="Gradient" id="Gradient_ewl2i"]
-colors = PackedColorArray(0.976471, 0.909804, 0.45098, 0, 0.974846, 0.911308, 0.449122, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fmhk"]
+shader = ExtResource("33_0fmhk")
+shader_parameter/start_color = Color(1, 0.849397, 0.454648, 1)
+shader_parameter/end_color = Color(1, 0.85098, 0.454902, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_aot5c"]
-gradient = SubResource("Gradient_ewl2i")
-width = 2000
-height = 5000
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
+[sub_resource type="CanvasTexture" id="CanvasTexture_0fmhk"]
 
-[sub_resource type="Gradient" id="Gradient_tkyx5"]
-colors = PackedColorArray(0.974846, 0.911308, 0.449122, 1, 0.974846, 0.911308, 0.449122, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7lfw0"]
-gradient = SubResource("Gradient_tkyx5")
-width = 4000
-height = 5000
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iafhg"]
+shader = ExtResource("33_0fmhk")
+shader_parameter/start_color = Color(1, 0.849397, 0.454648, 1)
+shader_parameter/end_color = Color(1, 0.85098, 0.454902, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttxjc"]
 normal = Vector2(1, 0)
@@ -429,8 +424,6 @@ minZoom = Vector2(0.5, 0.5)
 zoomSpeed = 1.0
 
 [node name="MobileControls" parent="." instance=ExtResource("25_50fbu")]
-process_mode = 4
-visible = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -511,15 +504,19 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageTruck/MovingWall"]
 shape = SubResource("WorldBoundaryShape2D_n4vnm")
 
-[node name="Gradient" type="Sprite2D" parent="GarbageTruck"]
+[node name="ShaderGradient" type="Sprite2D" parent="GarbageTruck"]
 z_index = 10
-position = Vector2(-473, -2000)
-texture = SubResource("GradientTexture2D_aot5c")
+material = SubResource("ShaderMaterial_0fmhk")
+position = Vector2(-544.5, -2017)
+scale = Vector2(1877, 5008)
+texture = SubResource("CanvasTexture_0fmhk")
 
-[node name="SolidColor" type="Sprite2D" parent="GarbageTruck"]
+[node name="ShaderSolid" type="Sprite2D" parent="GarbageTruck"]
 z_index = 10
-position = Vector2(-3459, -2000)
-texture = SubResource("GradientTexture2D_7lfw0")
+material = SubResource("ShaderMaterial_iafhg")
+position = Vector2(-3465, -2017)
+scale = Vector2(3988, 5008)
+texture = SubResource("CanvasTexture_0fmhk")
 
 [node name="DeathInitArea" type="Area2D" parent="GarbageTruck"]
 position = Vector2(-1475, 0)
